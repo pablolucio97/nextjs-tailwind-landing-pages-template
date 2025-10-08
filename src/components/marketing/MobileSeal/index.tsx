@@ -1,9 +1,9 @@
 'use client';
 
-import Image from "next/image";
-import clsx from "clsx";
 import appStoreLogo from "@/assets/apple-logo.png";
 import googlePlayLogo from "@/assets/google-play-logo.png";
+import clsx from "clsx";
+import Image from "next/image";
 
 /** ===================== Tipagem =====================
  * Componente de selos/links para as lojas mobile (Brasil).
@@ -42,7 +42,7 @@ export interface MobileSealProps {
 }
 
 /** ===================== Componente ===================== */
-export export default function MobileSeal({
+export default function MobileSeal({
   showAppStoreLogo = true,
   showGooglePlayLogo = true,
   appStoreLink,

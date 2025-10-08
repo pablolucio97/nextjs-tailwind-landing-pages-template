@@ -45,7 +45,7 @@ export interface DestructiveModalProps {
   ariaDescribedby?: string;
 }
 
-export export default function DestructiveModal({
+export default function DestructiveModal({
   open,
   onClose,
   title,

@@ -196,7 +196,7 @@ const DraggableTH: React.FC<DraggableTHProps> = ({
 };
 
 /* ------------------------- Component --------------------------- */
-export export default function CompleteTable({
+export default function CompleteTable({
   data,
   tableHeadersMap,
   columnLabels,

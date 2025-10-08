@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import type { } from 'react-type-animation';
 import { TypeAnimation } from "react-type-animation";
 
@@ -29,7 +29,7 @@ export interface TypeWriterProps {
  * - Gera automaticamente a sequência `sequence` intercalando cada texto com o atraso (`textDelayMs`).
  * - Permite escolher o wrapper (h1–h6, p, span, div) e configurar repetição/cursores.
  */
-export export default function TypeWriter({
+export default function TypeWriter({
   textList,
   textDelayMs = 1200,
   wrapper = "h1",

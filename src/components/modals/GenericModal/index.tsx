@@ -46,7 +46,7 @@ export interface GenericModalProps {
   ariaDescribedby?: string;
 }
 
-export export default function GenericModal({
+export default function GenericModal({
   open,
   onClose,
   title,
