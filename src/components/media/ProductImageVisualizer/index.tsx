@@ -32,7 +32,7 @@ export default function ProductImageVisualizer({
   mainImageClassName,
   thumbClassName,
   showHelperText = true,
-}) {
+}: ProductImageVisualizerProps) {
   const safeImages = useMemo(() => images?.filter(Boolean) ?? [], [images]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const current = safeImages[currentIndex];

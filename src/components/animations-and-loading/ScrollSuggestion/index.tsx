@@ -26,7 +26,7 @@ export default function ScrollSuggestion({
   iconClassName,
   textClassName,
   icon,
-}) {
+}: ScrollSugestionProps) {
   return (
     <div
       className={clsx("flex flex-col items-center gap-y-2", containerClassName)}

@@ -47,7 +47,7 @@ export default function DealCard({
   currentPriceClassName,
   oldPriceClassName,
   resourcesClassName,
-}) {
+}: DealCardProps) {
   const hasDiscount = typeof discountPercentage === "number";
 
   return (

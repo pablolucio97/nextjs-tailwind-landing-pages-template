@@ -69,7 +69,7 @@ export default function GenericModal({
   confirmButtonDisabled,
   cancelButtonClassName,
   confirmButtonClassName,
-}) {
+}: GenericModalProps) {
   const titleId = title ? ariaLabelledby ?? "generic-modal-title" : undefined;
   const descId = description
     ? ariaDescribedby ?? "generic-modal-description"

@@ -22,8 +22,8 @@ export default function ZoomContainer({
   visibilityAmount = 0.25,
   once = false,
   scale = 1,
-  className
-}) {
+  className,
+}: ZoomContainerProps) {
   const ref = useRef<HTMLDivElement | null>(null);
 
   // Detecta visibilidade

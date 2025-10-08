@@ -25,7 +25,7 @@ export default function StarsRating({
   onChange, // <-- interceptamos para limpar hoverValue
   onHoverChange, // <-- ainda disponibilizamos
   ...rest
-}) {
+}: StarsRatingProps) {
   const [hoverValue, setHoverValue] = useState<number | null>(null);
 
   // Map 0..5 → label (0 = sem rótulo; 1..5 pegam labels[0..4])

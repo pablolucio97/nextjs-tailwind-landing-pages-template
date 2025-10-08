@@ -42,7 +42,7 @@ export default function PixPaymentCard({
   qrCodeImage,
   onCopyCode,
   expiresAt,
-}) {
+}: PixPaymentCardProps) {
   // === Expiração: padrão +1h ===
   const defaultEnd = useMemo(() => {
     const d = new Date();

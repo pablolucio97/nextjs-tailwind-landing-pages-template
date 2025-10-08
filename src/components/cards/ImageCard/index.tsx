@@ -23,7 +23,7 @@ export default function ImageCard({
   title,
   description,
   onSeeDetails,
-}) {
+}: ImageCardProps) {
   const handleSeeDetails = () => {
     if (onSeeDetails) {
       onSeeDetails();

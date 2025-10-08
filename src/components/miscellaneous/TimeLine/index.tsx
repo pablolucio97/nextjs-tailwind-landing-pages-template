@@ -35,7 +35,7 @@ export default function Timeline({
   firstIcon,
   lastIcon,
   className,
-}) {
+}: TimelineProps) {
   if (!events?.length) return null;
 
   const ordered = reverseOrder ? [...events].reverse() : events;

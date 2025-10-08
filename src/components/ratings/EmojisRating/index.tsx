@@ -52,7 +52,7 @@ export default function EmojisRating({
   containerClassName,
   labelClassName,
   emojiClassName,
-}) {
+}: EmojisRatingProps) {
   const [hoverValue, setHoverValue] = useState<number | null>(null);
   const isInteractive = !readOnly && !disabled;
 
