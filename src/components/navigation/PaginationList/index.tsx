@@ -42,7 +42,7 @@ export default function ListPagination({
   leftIcon,
   firstIcon,
   lastIcon,
-}) {
+}: ListPaginationProps) {
   const [itemsPerPageState, setItemsPerPageState] = useState(itemsPerPage);
 
   const totalPages = Math.max(

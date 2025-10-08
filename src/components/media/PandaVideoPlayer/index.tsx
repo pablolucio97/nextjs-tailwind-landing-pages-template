@@ -21,7 +21,7 @@ export default function PandaVideoPlayer({
   zone = "d031816a-48f",
   controlsColor,
   themeColor,
-}) {
+}: PandaVideoPlayerProps) {
   const base = `https://player-vz-${zone}.tv.pandavideo.com.br/embed/`;
 
   const primaryColor = getThemeColor("--color-primary-500");

@@ -31,7 +31,7 @@ export default function ProgressBar({
   showPercentage = false,
   thickness = 8,
   trackColor,
-}) {
+}: ProgressBarProps) {
   const clampedMax = Math.max(1, max);
   const clampedValue = Math.min(Math.max(0, value), clampedMax);
   const pct = (clampedValue / clampedMax) * 100;

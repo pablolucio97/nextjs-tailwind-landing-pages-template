@@ -43,7 +43,7 @@ export default function PhotoVisualizer({
   containerClassName,
   thumbsContainerClassName,
   thumbClassName,
-}) {
+}: PhotoVisualizerProps) {
   if (!photos?.length) return null;
 
   return (

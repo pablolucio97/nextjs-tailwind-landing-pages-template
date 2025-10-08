@@ -42,7 +42,7 @@ export default function GradientText({
   direction = "r",
   content,
   className,
-}) {
+}: GradientTextProps) {
   // Mapeia direção para a classe Tailwind `bg-gradient-to-*`
   const dirClass = {
     r: "bg-gradient-to-r",

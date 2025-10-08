@@ -101,7 +101,7 @@ export default function GoogleMapsRender({
   borderRadius = 12,
   containerClassName,
   minHeight = 220,
-}) {
+}: GoogleMapsRenderProps) {
   const src = buildEmbeddableUrl({ raw: embedUrl, address, apiKey, zoom });
 
   if (!src) {

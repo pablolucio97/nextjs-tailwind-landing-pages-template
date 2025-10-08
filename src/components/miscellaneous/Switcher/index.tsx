@@ -29,7 +29,7 @@ export default function Switcher({
   errorMessage,
   containerClassName,
   disabled,
-}) {
+}: SwitcherProps) {
   const primaryColor = getThemeColor("--color-primary-500");
 
   return (

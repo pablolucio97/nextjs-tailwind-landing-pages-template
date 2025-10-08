@@ -21,7 +21,7 @@ export default function CepPopOverInput({
   buttonLabel,
   className,
   onSearchCep,
-}) {
+}: CepPopOverInputProps) {
   const [cep, setCep] = useState("");
   const [popOverVisible, setPopOverVisible] = useState(shouldBeShown);
 

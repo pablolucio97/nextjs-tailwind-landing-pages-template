@@ -67,7 +67,7 @@ export default function DestructiveModal({
   cancelButtonClassName,
   confirmButtonClassName,
   confirmMessage,
-}) {
+}: DestructiveModalProps) {
   const titleId = title
     ? ariaLabelledby ?? "destructive-modal-title"
     : undefined;

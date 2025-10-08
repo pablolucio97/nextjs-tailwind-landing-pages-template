@@ -217,7 +217,7 @@ export default function CompleteTable({
   headerClassName,
   searchClassName,
   paginationClassName,
-}) {
+}: CompleteTableProps) {
   const initialCols = useMemo(() => {
     const storedCols = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
     if (

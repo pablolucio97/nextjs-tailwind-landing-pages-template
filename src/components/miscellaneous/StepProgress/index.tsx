@@ -38,7 +38,7 @@ export default function StepProgress({
   currentStep,
   vertical = false,
   className,
-}) {
+}: StepProgressProps) {
   const normalized = steps.map((s) => (typeof s === "string" ? { label: s } : s));
   const lastIndex = normalized.length - 1;
 

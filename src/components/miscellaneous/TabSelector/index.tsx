@@ -33,7 +33,7 @@ export default function TabSelector({
   onTabChange,
   className,
   tabClassName,
-}) {
+}: TabSelectorProps) {
   const baseId = useId();
   const safeTabs = useMemo(() => tabs ?? [], [tabs]);
 

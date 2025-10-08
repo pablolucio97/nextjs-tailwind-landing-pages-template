@@ -64,7 +64,7 @@ export default function BrandMarquee({
   maxLogoHeightPx = 120,
   className,
   imageFilter = "none",
-}) {
+}: BrandMarqueeProps) {
   if (!logos?.length) return null;
 
   return (
