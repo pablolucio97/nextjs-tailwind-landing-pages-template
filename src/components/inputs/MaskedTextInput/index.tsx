@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from "clsx";
 import React, { forwardRef, useId } from "react";
 import { IMaskInput } from "react-imask";

@@ -1,3 +1,6 @@
+'use client';
+
+import Image from "next/image";
 import { StarIcon } from "@phosphor-icons/react";
 import React from "react";
 
@@ -19,13 +22,13 @@ interface TestimonialCardProps {
  * - Inclui avatar, nome, função (opcional), estrelas de avaliação e texto do depoimento.
  * - Responsivo para ser usado em seções de landing pages ou vitrines de produtos.
  */
-const TestimonialCard: React.FC<TestimonialCardProps> = ({
+export default function TestimonialCard({
   avatarUrl,
   userName,
   userRole,
   rating,
   testimonial,
-}: TestimonialCardProps) => {
+}: TestimonialCardProps) {
   const renderStars = (value: number) => {
     const stars = Array.from({ length: 5 }, (_, i) => i < value);
     return (
@@ -51,9 +54,11 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       "
     >
       {/* Avatar */}
-      <img
+      <Image
         src={avatarUrl}
         alt={`Foto de ${userName}`}
+        width={80}
+        height={80}
         className="w-20 h-20 rounded-full object-cover mb-4"
       />
 
@@ -72,7 +77,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       </div>
     </div>
   );
-};
+}
 
-export default TestimonialCard;
+
 export type { TestimonialCardProps };

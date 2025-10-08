@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from "clsx";
 import React from "react";
 
@@ -13,11 +15,11 @@ interface ParagraphProps {
 /**
  * Componente de textos longos. Ideal para exibir parágrafos.
  */
-const Paragraph: React.FC<ParagraphProps> = ({
+export default function Paragraph({
   content,
   weight = "regular",
   className,
-}: ParagraphProps) => {
+}: ParagraphProps) {
   return (
     <p
       className={clsx(
@@ -28,6 +30,6 @@ const Paragraph: React.FC<ParagraphProps> = ({
       {content}
     </p>
   );
-};
+}
 
-export default Paragraph;
+

@@ -1,3 +1,6 @@
+'use client';
+
+import Image from "next/image";
 import { ListIcon, XIcon } from "@phosphor-icons/react"; // @phosphor-icons/react
 import clsx from "clsx";
 
@@ -99,9 +102,11 @@ export interface LogoProps {
   className?: string;
 }
 const Logo: React.FC<LogoProps> = ({ src, alt, className }) => (
-  <img
+  <Image
     src={src}
     alt={alt}
+    width={120}
+    height={36}
     className={clsx("block h-7 w-auto sm:h-8 lg:h-9 select-none", className)}
   />
 );
@@ -137,6 +142,7 @@ Nav.Item = ({ href = "#", target, onClick, children, active }) => (
     </a>
   </li>
 );
+Nav.Item.displayName = "LandingHeaderNavItem";
 
 /** CTA (qualquer nó) */
 

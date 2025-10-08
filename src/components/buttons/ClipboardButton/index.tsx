@@ -17,13 +17,13 @@ export interface ClipboardButtonProps
   onCopy?: () => void;
 }
 /** Componente de botão de área de transferência. */
-const ClipboardButton: React.FC<ClipboardButtonProps> = ({
+export default function ClipboardButton({
   textToCopy,
   label = "Copiar texto",
   onCopy,
   variant = "outlined",
   ...props
-}: ClipboardButtonProps) => {
+}: ClipboardButtonProps) {
   return (
     <button
       className={`flex items-center justify-center w-fit px-3 py-2 sm:px-4 sm:py-3  rounded-md gap-2 text-xs sm:text-sm ${
@@ -47,5 +47,3 @@ const ClipboardButton: React.FC<ClipboardButtonProps> = ({
     </button>
   );
 }
-
-export default ClipboardButton;

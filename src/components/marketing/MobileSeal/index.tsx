@@ -1,3 +1,6 @@
+'use client';
+
+import Image from "next/image";
 import clsx from "clsx";
 import appStoreLogo from "@/assets/apple-logo.png";
 import googlePlayLogo from "@/assets/google-play-logo.png";
@@ -39,7 +42,7 @@ export interface MobileSealProps {
 }
 
 /** ===================== Componente ===================== */
-export const MobileSeal = ({
+export export default function MobileSeal({
   showAppStoreLogo = true,
   showGooglePlayLogo = true,
   appStoreLink,
@@ -50,7 +53,7 @@ export const MobileSeal = ({
   itemClassName,
   imageClassName,
   textClassName,
-}: MobileSealProps) => {
+}: MobileSealProps) {
   /** Wrapper que vira <a> quando tem link, senão <div>. */
   const LinkOrDiv: React.FC<
     React.PropsWithChildren<{ href?: string; label: string }>
@@ -95,10 +98,11 @@ export const MobileSeal = ({
           href={appStoreLink}
           label="Abrir App Store em nova aba (Brasil)"
         >
-          <img
+          <Image
             src={appStoreLogo}
             alt="Disponível na App Store"
-            loading="lazy"
+            width={40}
+            height={40}
             className={clsx(
               "h-8 w-8 sm:h-10 sm:w-10 object-contain",
               "transition-transform group-hover:scale-[1.03]",
@@ -121,10 +125,11 @@ export const MobileSeal = ({
           href={googlePlayLink}
           label="Abrir Google Play em nova aba (Brasil)"
         >
-          <img
+          <Image
             src={googlePlayLogo}
             alt="Disponível no Google Play"
-            loading="lazy"
+            width={40}
+            height={40}
             className={clsx(
               "h-8 w-8 sm:h-10 sm:w-10 object-contain -mb-2",
               "transition-transform group-hover:scale-[1.03]",
@@ -143,6 +148,6 @@ export const MobileSeal = ({
       )}
     </div>
   );
-};
+}
 
-export default MobileSeal;
+

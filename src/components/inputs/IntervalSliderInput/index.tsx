@@ -1,3 +1,5 @@
+'use client';
+
 import { getThemeColor } from "@/utils/colors";
 import clsx from "clsx";
 import type { SliderProps } from "rc-slider";
@@ -60,7 +62,7 @@ export interface IntervalSliderInputProps {
  * - Estilos customizáveis (track/rail/handle/dots).
  * - Responsivo, acessível e com suporte a dark mode.
  */
-const IntervalSliderInput: React.FC<IntervalSliderInputProps> = ({
+export default function IntervalSliderInput({
   label,
   helperText,
   errorMessage,
@@ -76,7 +78,7 @@ const IntervalSliderInput: React.FC<IntervalSliderInputProps> = ({
   disabled,
   customStyles,
   ...rest
-}: IntervalSliderInputProps) => {
+}: IntervalSliderInputProps) {
   // ======= Cores do tema =======
   const primary500 = getThemeColor("--color-primary-500") ?? "#2563eb";
   const primary600 = getThemeColor("--color-primary-600") ?? "#1d4ed8";
@@ -172,7 +174,6 @@ const IntervalSliderInput: React.FC<IntervalSliderInputProps> = ({
       ) : null}
     </div>
   );
-};
+}
 
-export default IntervalSliderInput;
 

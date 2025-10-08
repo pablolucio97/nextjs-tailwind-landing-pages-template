@@ -1,3 +1,5 @@
+'use client';
+
 import { getThemeColor } from "@/utils/colors";
 import clsx from "clsx";
 import { BarLoader, ClipLoader, DotLoader, ScaleLoader } from "react-spinners";
@@ -18,14 +20,14 @@ interface LoadingProps {
   fullscreen?: boolean;
 }
 /** Loading para indicar estados assíncronos.*/
-const LoadingIndicator: React.FC<LoadingProps> = ({
+export default function LoadingIndicator({
   loading = true,
   color,
   text,
   hideText,
   iconVariant,
   fullscreen,
-}: LoadingProps) => {
+}: LoadingProps) {
   const primary500 = getThemeColor("--color-primary-500");
 
   if (!loading) return null;
@@ -58,6 +60,6 @@ const LoadingIndicator: React.FC<LoadingProps> = ({
       )}
     </div>
   );
-};
+}
 
-export default LoadingIndicator;
+

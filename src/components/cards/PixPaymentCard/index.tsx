@@ -1,4 +1,7 @@
+'use client';
+
 // PixPaymentCard.tsx
+import Image from "next/image";
 import {
   CheckIcon,
   CopyIcon,
@@ -33,13 +36,13 @@ export interface PixPaymentCardProps {
  * - Exibe QR Code, mensagem para copiar o link e botão de copiar.
  * - Mostra contador regressivo até a expiração (padrão 1 hora).
  */
-const PixPaymentCard: React.FC<PixPaymentCardProps> = ({
+export default function PixPaymentCard({
   message,
   paymentLink,
   qrCodeImage,
   onCopyCode,
   expiresAt,
-}) => {
+}) {
   // === Expiração: padrão +1h ===
   const defaultEnd = useMemo(() => {
     const d = new Date();
@@ -123,12 +126,13 @@ const PixPaymentCard: React.FC<PixPaymentCardProps> = ({
             h-44 sm:h-56 md:h-64 flex items-center justify-center
           "
         >
-          <img
+          <Image
             src={qrCodeImage}
             alt="QR Code do pagamento Pix"
+            width={256}
+            height={256}
             className="h-full w-auto object-contain"
-            loading="eager"
-            decoding="sync"
+            priority
           />
         </div>
       </div>
@@ -187,6 +191,6 @@ const PixPaymentCard: React.FC<PixPaymentCardProps> = ({
       </p>
     </div>
   );
-};
+}
 
-export default PixPaymentCard;
+

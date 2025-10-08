@@ -1,3 +1,5 @@
+'use client';
+
 import { XIcon } from "@phosphor-icons/react";
 import clsx from "clsx";
 import React from "react";
@@ -44,7 +46,7 @@ export interface GenericModalProps {
   ariaDescribedby?: string;
 }
 
-export const GenericModal: React.FC<GenericModalProps> = ({
+export export default function GenericModal({
   open,
   onClose,
   title,
@@ -67,7 +69,7 @@ export const GenericModal: React.FC<GenericModalProps> = ({
   confirmButtonDisabled,
   cancelButtonClassName,
   confirmButtonClassName,
-}) => {
+}) {
   const titleId = title ? ariaLabelledby ?? "generic-modal-title" : undefined;
   const descId = description
     ? ariaDescribedby ?? "generic-modal-description"
@@ -168,6 +170,6 @@ export const GenericModal: React.FC<GenericModalProps> = ({
       </div>
     </Modal>
   );
-};
+}
 
-export default GenericModal;
+

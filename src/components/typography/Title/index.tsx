@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from "clsx";
 import React from "react";
 
@@ -15,12 +17,12 @@ interface TitleProps {
 /**
  * Componente de Título. Ideal para exibir títulos maiores.
  */
-const Title: React.FC<TitleProps> = ({
+export default function Title({
   content,
   weight = "bold",
   element = "h1",
   className,
-}: TitleProps) => {
+}: TitleProps) {
   return (
     <>
       {React.createElement(
@@ -35,6 +37,6 @@ const Title: React.FC<TitleProps> = ({
       )}
     </>
   );
-};
+}
 
-export default Title;
+

@@ -1,3 +1,5 @@
+'use client';
+
 import { MagnifyingGlassIcon, XIcon } from "@phosphor-icons/react";
 import clsx from "clsx";
 import type {

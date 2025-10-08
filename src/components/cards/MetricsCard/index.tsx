@@ -1,3 +1,5 @@
+'use client';
+
 import CountUp from "react-countup";
 
 interface MetricsCardProps {
@@ -17,13 +19,13 @@ interface MetricsCardProps {
  * Componente para exibir um cartão de métricas com animação de contagem
  * Mais informações sobre o componente podem ser encontradas na documentação do react-countup.
  */
-const MetricsCard: React.FC<MetricsCardProps> = ({
+export default function MetricsCard({
   title,
   preTitle,
   value,
   icon,
   countDuration,
-} : MetricsCardProps) => {
+} : MetricsCardProps) {
   return (
     <div className="flex flex-col items-center justify-center p-4 border-border-card border bg-bg-card rounded-lg shadow">
       {preTitle && <h3 className="text-md sm:text-lg font-regular">{preTitle}</h3>}
@@ -38,6 +40,6 @@ const MetricsCard: React.FC<MetricsCardProps> = ({
       <div className="mb-4 text-2xl">{icon}</div>
     </div>
   );
-};
+}
 
-export default MetricsCard;
+

@@ -1,3 +1,5 @@
+'use client';
+
 import type { ButtonHTMLAttributes } from "react";
 import React from "react";
 import { BarLoader, ClipLoader, DotLoader, ScaleLoader } from "react-spinners";
@@ -16,14 +18,14 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 /** Componente de botão genérico. */
-const Button: React.FC<ButtonProps> = ({
+export default function Button({
   label,
   loading,
   variant = "filled",
   iconVariant = "scale",
   iconColor = "#ffffff",
   ...props
-} : ButtonProps) => {
+} : ButtonProps) {
   return (
     <button
       className={`flex items-center justify-center w-fit px-3 py-2 sm:px-4 sm:py-3 rounded-md ${variant === "filled"
@@ -62,6 +64,6 @@ const Button: React.FC<ButtonProps> = ({
       )}
     </button>
   );
-};
+}
 
-export default Button;
+

@@ -1,3 +1,6 @@
+'use client';
+
+import Image from "next/image";
 import useTheme from "@/hooks/useTheme";
 import {
     BellIcon,
@@ -104,9 +107,11 @@ export interface LogoProps {
 
 const Logo: React.FC<LogoProps> = ({ src, alt, className }) => {
     return (
-        <img
+        <Image
             src={src}
             alt={alt}
+            width={120}
+            height={36}
             className={clsx("block", "h-9 w-auto", className)}
         />
     );
@@ -219,7 +224,13 @@ const UserMenu: React.FC<{
             className="w-fit flex items-center gap-2 rounded-full bg-foreground/5 px-2.5 py-1.5 focus:outline-none ml-2 border border-foreground/10"
         >
             {avatarUrl ? (
-                <img src={avatarUrl} alt="avatar" className="h-7 w-7 rounded-full" />
+                <Image
+                    src={avatarUrl}
+                    alt="avatar"
+                    width={28}
+                    height={28}
+                    className="h-7 w-7 rounded-full"
+                />
             ) : (
                 <UserIcon className="h-7 w-7 text-muted-foreground" />
             )}

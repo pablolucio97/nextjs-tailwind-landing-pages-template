@@ -1,3 +1,6 @@
+'use client';
+
+import Image from "next/image";
 import React from "react";
 
 interface ImageCardProps {
@@ -15,12 +18,12 @@ interface ImageCardProps {
  * Card de imagem.
  * - Responsivo para ser usado em seções de landing pages ou vitrines de produtos.
  */
-const ImageCard: React.FC<ImageCardProps> = ({
+export default function ImageCard({
   imgUrl,
   title,
   description,
   onSeeDetails,
-}) => {
+}) {
   const handleSeeDetails = () => {
     if (onSeeDetails) {
       onSeeDetails();
@@ -35,9 +38,11 @@ const ImageCard: React.FC<ImageCardProps> = ({
       "
     >
       {/* Imagem */}
-      <img
+      <Image
         src={imgUrl}
         alt={title}
+        width={640}
+        height={384}
         className="w-full h-48 object-cover rounded-lg mb-4"
       />
 
@@ -69,6 +74,6 @@ const ImageCard: React.FC<ImageCardProps> = ({
       )}
     </div>
   );
-};
+}
 
-export default ImageCard;
+

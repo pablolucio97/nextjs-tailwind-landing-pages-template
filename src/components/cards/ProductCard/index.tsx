@@ -1,3 +1,6 @@
+'use client';
+
+import Image from "next/image";
 import { formatBRL } from "@/utils/format";
 import { ShoppingCartIcon, StarIcon, TimerIcon } from "@phosphor-icons/react";
 import React, { useEffect, useMemo, useRef, useState } from "react";
@@ -48,7 +51,7 @@ interface ProductCardProps {
  * - **Promoção com contador:** se `showDeal` for `true`, exibe preço promocional e um contador que
  *   por padrão encerra em 24 horas (ou no horário definido em `dealEndsWithIn`).
  */
-const ProductCard: React.FC<ProductCardProps> = ({
+export default function ProductCard({
   imageUrl,
   title,
   price,
@@ -61,7 +64,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   showDeal,
   dealPrice,
   dealEndsWithIn,
-}: ProductCardProps) => {
+}: ProductCardProps) {
   // === Preços formatados ===
   const formattedBasePrice = formatBRL(price);
   const effectiveDealPrice = dealPrice ?? price;
@@ -163,11 +166,12 @@ const ProductCard: React.FC<ProductCardProps> = ({
             flex items-center justify-center
           "
         >
-          <img
+          <Image
             src={imageUrl}
             alt={title}
+            width={400}
+            height={300}
             className="h-full w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]"
-            loading="lazy"
           />
         </div>
       </div>
@@ -264,7 +268,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
       </button>
     </div>
   );
-};
+}
 
-export default ProductCard;
+
 export type { ProductCardProps };

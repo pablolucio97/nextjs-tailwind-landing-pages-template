@@ -1,3 +1,5 @@
+'use client';
+
 import { getThemeColor } from "@/utils/colors";
 import clsx from "clsx";
 import type { SliderProps } from "rc-slider";
@@ -58,7 +60,7 @@ export interface SliderInputProps {
  * - Estilização customizável (track/rail/handle/dots)
  * - Padrões consistentes (dark mode, foco, erro, desabilitado)
  */
-const SliderInput: React.FC<SliderInputProps> = ({
+export default function SliderInput({
   label,
   helperText,
   errorMessage,
@@ -74,7 +76,7 @@ const SliderInput: React.FC<SliderInputProps> = ({
   disabled,
   customStyles,
   ...rest
-} : SliderInputProps) => {
+} : SliderInputProps) {
   // ======= Cores do tema (fallback se não houver CSS var) =======
   const primary500 = getThemeColor("--color-primary-500")
   const primary600 = getThemeColor("--color-primary-600")
@@ -193,6 +195,6 @@ const SliderInput: React.FC<SliderInputProps> = ({
       ) : null}
     </div>
   );
-};
+}
 
-export default SliderInput;
+

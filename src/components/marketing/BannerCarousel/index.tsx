@@ -1,3 +1,5 @@
+'use client';
+
 import {
   CaretCircleLeftIcon,
   CaretCircleRightIcon,
@@ -44,7 +46,7 @@ export interface BannerCarouselProps {
   className?: string;
 }
 
-export function BannerCarousel({
+export default function BannerCarousel({
   items,
   showNavigation = true,
   hidePrevButton = false,
@@ -192,5 +194,3 @@ export function BannerCarousel({
     </section>
   );
 }
-
-export default BannerCarousel;

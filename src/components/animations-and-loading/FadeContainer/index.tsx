@@ -1,3 +1,5 @@
+'use client';
+
 import { motion, useInView } from "motion/react";
 import React, { useRef } from "react";
 
@@ -13,12 +15,12 @@ interface FadeContainerProps {
 
 /** Container de animação com efeito fade. Para ver o efeito, envolva o conteúdo em um <ZoomContainer> e garanta que o componente esteja dentro de algum container que tenha altura mínima para scrolar a página.*/ 
 
-const FadeContainer: React.FC<FadeContainerProps> = ({
+export default function FadeContainer({
   children,
   visibilityAmount = 0.25,
   once = false,
   className
- } : FadeContainerProps) => {
+ } : FadeContainerProps) {
   const ref = useRef<HTMLDivElement | null>(null);
 
   // Detecta visibilidade
@@ -36,6 +38,6 @@ const FadeContainer: React.FC<FadeContainerProps> = ({
       {children}
     </motion.div>
   );
-};
+}
 
-export default FadeContainer;
+

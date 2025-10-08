@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from "clsx";
 import React from "react";
 
@@ -88,7 +90,7 @@ export interface GoogleMapsRenderProps {
   minHeight?: number;
 }
 
-const GoogleMapsRender: React.FC<GoogleMapsRenderProps> = ({
+export default function GoogleMapsRender({
   embedUrl,
   address,
   apiKey,
@@ -99,7 +101,7 @@ const GoogleMapsRender: React.FC<GoogleMapsRenderProps> = ({
   borderRadius = 12,
   containerClassName,
   minHeight = 220,
-}) => {
+}) {
   const src = buildEmbeddableUrl({ raw: embedUrl, address, apiKey, zoom });
 
   if (!src) {
@@ -145,6 +147,6 @@ const GoogleMapsRender: React.FC<GoogleMapsRenderProps> = ({
       </div>
     </section>
   );
-};
+}
 
-export default GoogleMapsRender;
+

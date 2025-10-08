@@ -1,3 +1,5 @@
+'use client';
+
 import { ArrowLeftIcon, ArrowRightIcon } from "@phosphor-icons/react";
 import clsx from "clsx";
 import React, { useMemo, useRef, useState } from "react";
@@ -68,7 +70,7 @@ export interface CarouselProps<T = unknown> {
  * />
  * ```
  */
-function Carousel<T>({
+export default function Carousel<T>({
   items,
   renderItem,
   title,
@@ -184,5 +186,3 @@ function Carousel<T>({
     </>
   );
 }
-
-export default Carousel;

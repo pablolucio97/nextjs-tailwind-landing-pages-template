@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from "clsx";
 import { Tooltip as TooltipComponent } from "react-tooltip";
 
@@ -10,7 +12,7 @@ interface TooltipProps {
   className?: string;
 }
 
-const Tooltip = ({ id, place = "top", className }: TooltipProps) => {
+export default function Tooltip({ id, place = "top", className }: TooltipProps) {
   return (
     <TooltipComponent
       id={id}
@@ -26,6 +28,6 @@ const Tooltip = ({ id, place = "top", className }: TooltipProps) => {
       style={{ zIndex: 9999 }}
     />
   );
-};
+}
 
-export default Tooltip;
+

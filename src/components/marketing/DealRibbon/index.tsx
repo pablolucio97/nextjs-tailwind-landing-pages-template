@@ -1,3 +1,5 @@
+'use client';
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import clsx from "clsx";
 import React, { useLayoutEffect, useMemo, useRef, useState } from "react";
@@ -40,7 +42,7 @@ export interface DealRibbonProps<CProps = unknown> {
  *    - Usa também `speedMs` como piso para itens (faixas mais lentas exibem mais repetições).
  * 2) Corrige a largura com `calc(100vw - 64px)` (antes Tailwind não resolvia a expressão).
  */
-const DealRibbon = <CProps,>({
+export default function DealRibbon({
   text,
   html,
   Icon,
@@ -51,7 +53,7 @@ const DealRibbon = <CProps,>({
   stickyTop,
   stickyBottom,
   className,
-}: DealRibbonProps<CProps>) => {
+}: DealRibbonProps<CProps>) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const measureRef = useRef<HTMLDivElement | null>(null);
   const [itemCount, setItemCount] = useState<number>(24); // valor inicial seguro
@@ -192,6 +194,6 @@ const DealRibbon = <CProps,>({
       `}</style>
     </section>
   );
-};
+}
 
-export default DealRibbon;
+

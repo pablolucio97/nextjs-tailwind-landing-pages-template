@@ -1,5 +1,7 @@
 
 
+'use client';
+
 import CheckBox, { type CheckboxChangeEvent } from "rc-checkbox";
 import "rc-checkbox/assets/index.css";
 
@@ -16,13 +18,13 @@ interface CheckboxProps {
   disabled?: boolean;
 }
 
-const Checkbox: React.FC<CheckboxProps> = ({
+export default function Checkbox({
   checked,
   onChange,
   helperText,
   errorMessage,
   disabled = false,
-} : CheckboxProps) => {
+} : CheckboxProps) {
   return (
     <div className="block gap-4">
       <div className="flex items-center gap-2 mt-1">
@@ -59,6 +61,6 @@ const Checkbox: React.FC<CheckboxProps> = ({
       )}
     </div>
   );
-};
+}
 
-export default Checkbox;
+

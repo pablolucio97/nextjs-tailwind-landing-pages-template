@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from "clsx";
 import React, { useEffect, useId, useMemo, useState } from "react";
 
@@ -24,14 +26,14 @@ export interface TabSelectorProps {
  * - Acessível: `role="tablist"`, `role="tab"`, `role="tabpanel"`, ARIA e roving tabIndex.
  * - Responsivo: barra de abas com `overflow-x-auto` em telas pequenas.
  */
-const TabSelector: React.FC<TabSelectorProps> = ({
+export default function TabSelector({
   tabs,
   selectedTab,
   activeTabContent,
   onTabChange,
   className,
   tabClassName,
-}) => {
+}) {
   const baseId = useId();
   const safeTabs = useMemo(() => tabs ?? [], [tabs]);
 
@@ -131,6 +133,6 @@ const TabSelector: React.FC<TabSelectorProps> = ({
       })}
     </div>
   );
-};
+}
 
-export default TabSelector;
+

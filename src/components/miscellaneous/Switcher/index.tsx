@@ -1,3 +1,5 @@
+'use client';
+
 import { getThemeColor } from "@/utils/colors";
 import React from "react";
 import Switch from "react-switch";
@@ -19,7 +21,7 @@ interface SwitcherProps {
   disabled?: boolean;
 }
 
-const Switcher: React.FC<SwitcherProps> = ({
+export default function Switcher({
   checked,
   onChange,
   label,
@@ -27,7 +29,7 @@ const Switcher: React.FC<SwitcherProps> = ({
   errorMessage,
   containerClassName,
   disabled,
-}) => {
+}) {
   const primaryColor = getThemeColor("--color-primary-500");
 
   return (
@@ -54,5 +56,5 @@ const Switcher: React.FC<SwitcherProps> = ({
       ) : null}
     </div>
   );
-};
-export default Switcher;
+}
+

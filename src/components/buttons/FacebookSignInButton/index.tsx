@@ -1,3 +1,5 @@
+'use client';
+
 import { sizes } from "@/theme/theme";
 import { FacebookLogoIcon } from "@phosphor-icons/react";
 import type { ButtonHTMLAttributes } from "react";
@@ -19,14 +21,14 @@ interface FacebookSignInButtonProps
 }
 
 /** Botão de autenticação baseado no Facebook. */
-const FacebookSignInButton: React.FC<FacebookSignInButtonProps> = ({
+export default function FacebookSignInButton({
   label = "Entrar com o Facebook",
   loading,
   variant = "indigo",
   iconVariant = "scale",
   iconColor = "#ffffff",
   ...props
-}: FacebookSignInButtonProps) => {
+}: FacebookSignInButtonProps) {
   return (
     <button
       className={`flex items-center justify-center w-fit px-3 py-2 sm:px-4 sm:py-3 rounded-md ${
@@ -94,7 +96,7 @@ const FacebookSignInButton: React.FC<FacebookSignInButtonProps> = ({
       )}
     </button>
   );
-};
+}
 
-export default FacebookSignInButton;
+
 export type { FacebookSignInButtonProps };

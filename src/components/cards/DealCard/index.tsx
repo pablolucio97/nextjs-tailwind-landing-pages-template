@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from "clsx";
 import React from "react";
 
@@ -28,7 +30,7 @@ export interface DealCardProps {
   resourcesClassName?: string;
 }
 
-const DealCard: React.FC<DealCardProps> = ({
+export default function DealCard({
   title,
   subtitle,
   currentPrice,
@@ -45,7 +47,7 @@ const DealCard: React.FC<DealCardProps> = ({
   currentPriceClassName,
   oldPriceClassName,
   resourcesClassName,
-}) => {
+}) {
   const hasDiscount = typeof discountPercentage === "number";
 
   return (
@@ -176,6 +178,6 @@ const DealCard: React.FC<DealCardProps> = ({
       ) : null}
     </div>
   );
-};
+}
 
-export default DealCard;
+

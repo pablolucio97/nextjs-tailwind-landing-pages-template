@@ -1,3 +1,5 @@
+'use client';
+
 import { CalendarIcon } from "@phosphor-icons/react";
 import clsx from "clsx";
 import { ptBR } from "date-fns/locale/pt-BR";

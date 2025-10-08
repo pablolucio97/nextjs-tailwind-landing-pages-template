@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from "clsx";
 import { useState } from "react";
 
@@ -19,7 +21,7 @@ export interface CookiesCardProps {
   buttonClassName?: string;
 }
 
-const CookiesCard = ({
+export default function CookiesCard({
   title,
   description,
   containerClassName,
@@ -28,7 +30,7 @@ const CookiesCard = ({
   buttonClassName,
   buttonTitle = "Entendi",
   onConfirm,
-}: CookiesCardProps) => {
+}: CookiesCardProps) {
   const [showCard, setShowCard] = useState(true);
 
   const handleConfirm = () => {
@@ -80,6 +82,6 @@ const CookiesCard = ({
       </div>
     </div>
   );
-};
+}
 
-export default CookiesCard;
+

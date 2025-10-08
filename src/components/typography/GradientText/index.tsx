@@ -1,3 +1,5 @@
+'use client';
+
 import React, { type JSX } from "react";
 import clsx from "clsx";
 
@@ -33,14 +35,14 @@ export interface GradientTextProps {
  * - Ideal para destaques de marketing no mercado brasileiro (títulos de landing, CTAs, etc.).
  * - Combine com classes Tailwind para tamanhos responsivos: `text-4xl md:text-6xl`.
  */
-const GradientText: React.FC<GradientTextProps> = ({
+export default function GradientText({
   as: Tag = "h1",
   from,
   to,
   direction = "r",
   content,
   className,
-}) => {
+}) {
   // Mapeia direção para a classe Tailwind `bg-gradient-to-*`
   const dirClass = {
     r: "bg-gradient-to-r",
@@ -69,6 +71,6 @@ const GradientText: React.FC<GradientTextProps> = ({
       {content}
     </Tag>
   );
-};
+}
 
-export default GradientText;
+

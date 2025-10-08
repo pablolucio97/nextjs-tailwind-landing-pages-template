@@ -1,3 +1,5 @@
+'use client';
+
 // DonutChart.tsx
 import clsx from "clsx";
 import React from "react";
@@ -136,7 +138,7 @@ export interface DonutChartRootProps
   chartClassName?: string;
 }
 
-const DonutChart: React.FC<DonutChartRootProps> = ({
+export default function DonutChart({
   data,
   size = "md",
   width = "100%",
@@ -169,7 +171,7 @@ const DonutChart: React.FC<DonutChartRootProps> = ({
   chartClassName,
   children,
   ...rest
-}) => {
+}) {
   const computedHeight = height ?? heightMap[size];
 
   const total = React.useMemo(
@@ -327,6 +329,6 @@ const DonutChart: React.FC<DonutChartRootProps> = ({
       )}
     </div>
   );
-};
+}
 
-export default DonutChart;
+

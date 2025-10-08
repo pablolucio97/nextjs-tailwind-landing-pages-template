@@ -1,3 +1,5 @@
+'use client';
+
 import type { CSSProperties } from "react";
 import Lottie from "react-lottie";
 
@@ -17,14 +19,14 @@ interface LottieAnimationProps {
 }
 
 /** Componente de animação baseado na biblioteca Lottie. Para mais detalhes, ver documentação em https://github.com/airbnb/lottie-web. */
-const LottieAnimation: React.FC<LottieAnimationProps> = ({
+export default function LottieAnimation({
   animation,
   height,
   width,
   loop,
   autoplay,
   style,
-}: LottieAnimationProps) => {
+}: LottieAnimationProps) {
   const defaultOptions = {
     loop,
     autoplay,
@@ -42,6 +44,6 @@ const LottieAnimation: React.FC<LottieAnimationProps> = ({
       style={style}
     />
   );
-};
+}
 
-export default LottieAnimation;
+

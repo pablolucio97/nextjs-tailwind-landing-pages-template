@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from "clsx";
 
 export interface BadgeProps {
@@ -8,12 +10,12 @@ export interface BadgeProps {
   className?: string;
 }
 
-const Badge: React.FC<BadgeProps> = ({
+export default function Badge({
   text,
   size = "medium",
   variant = "filled",
   className,
-} : BadgeProps) => {
+} : BadgeProps) {
   return (
     <div
       className={clsx(
@@ -32,6 +34,6 @@ const Badge: React.FC<BadgeProps> = ({
       {text}
     </div>
   );
-};
+}
 
-export default Badge;
+

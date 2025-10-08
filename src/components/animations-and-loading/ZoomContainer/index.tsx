@@ -1,3 +1,5 @@
+'use client';
+
 import { motion, useInView } from "motion/react";
 import React, { useRef } from "react";
 
@@ -15,13 +17,13 @@ interface ZoomContainerProps {
 
 /** Container de animação com efeito zoom in.*/ 
 
-const ZoomContainer: React.FC<ZoomContainerProps> = ({
+export default function ZoomContainer({
   children,
   visibilityAmount = 0.25,
   once = false,
   scale = 1,
   className
-}) => {
+}) {
   const ref = useRef<HTMLDivElement | null>(null);
 
   // Detecta visibilidade
@@ -39,6 +41,6 @@ const ZoomContainer: React.FC<ZoomContainerProps> = ({
       {children}
     </motion.div>
   );
-};
+}
 
-export default ZoomContainer;
+

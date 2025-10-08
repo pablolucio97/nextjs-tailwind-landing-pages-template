@@ -1,3 +1,5 @@
+'use client';
+
 import { Rating, type RatingProps } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import clsx from "clsx";
@@ -14,7 +16,7 @@ export interface BarsRatingProps extends RatingProps {
   labelClassName?: string;
 }
 
-const BarsRating: React.FC<BarsRatingProps> = ({
+export default function BarsRating({
   labels = ["Muito ruim", "Ruim", "Ok", "Bom", "Excelente"],
   showLabels = true,
   containerClassName,
@@ -23,7 +25,7 @@ const BarsRating: React.FC<BarsRatingProps> = ({
   onChange, // <-- interceptamos para limpar hoverValue
   onHoverChange, // <-- ainda disponibilizamos
   ...rest
-}) => {
+}) {
   const [hoverValue, setHoverValue] = useState<number | null>(null);
 
   // Map 0..5 → label (0 = sem rótulo; 1..5 pegam labels[0..4])
@@ -99,6 +101,6 @@ const BarsRating: React.FC<BarsRatingProps> = ({
       )}
     </div>
   );
-};
+}
 
-export default BarsRating;
+

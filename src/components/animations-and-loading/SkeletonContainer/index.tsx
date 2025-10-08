@@ -1,3 +1,5 @@
+'use client';
+
 // SkeletonContainer.tsx
 import useTheme from "@/hooks/useTheme";
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
@@ -35,7 +37,7 @@ export interface SkeletonContainerProps
 
 /** Usado para exibir um skeleton enquanto o conteúdo real é carregado. */
 
-const SkeletonContainer: React.FC<SkeletonContainerProps> = ({
+export default function SkeletonContainer({
   children,
   isLoading = true,
   shape = "block",
@@ -49,7 +51,7 @@ const SkeletonContainer: React.FC<SkeletonContainerProps> = ({
   duration = 1.2,
   enableAnimation = true,
   ...rest
-}: SkeletonContainerProps) => {
+}: SkeletonContainerProps) {
   const { theme } = useTheme();
   const baseColor = theme === "dark" ? "#616362" : "#BFC4C3";
   const highlightColor = theme === "dark" ? "#7E807E" : "#DFE3E0";
@@ -155,6 +157,6 @@ const SkeletonContainer: React.FC<SkeletonContainerProps> = ({
       {isLoading ? skeletonEl : children}
     </div>
   );
-};
+}
 
-export default SkeletonContainer;
+

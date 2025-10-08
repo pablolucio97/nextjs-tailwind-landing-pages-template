@@ -1,3 +1,5 @@
+'use client';
+
 // SignUpForm.tsx
 import {
     lowerCaseRegex,

@@ -1,3 +1,6 @@
+'use client';
+
+import Image from "next/image";
 import clsx from "clsx";
 import React from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
@@ -35,12 +38,12 @@ export interface PhotoVisualizerProps {
  * Casos de uso:
  * - Vitrine de produto, portfólio, galerias em landing pages.
  */
-const PhotoVisualizer: React.FC<PhotoVisualizerProps> = ({
+export default function PhotoVisualizer({
   photos,
   containerClassName,
   thumbsContainerClassName,
   thumbClassName,
-}) => {
+}) {
   if (!photos?.length) return null;
 
   return (
@@ -65,10 +68,11 @@ const PhotoVisualizer: React.FC<PhotoVisualizerProps> = ({
                 className="rounded"
                 aria-label={photo.alt ?? `Abrir foto ${index + 1}`}
               >
-                <img
+                <Image
                   src={photo.src}
                   alt={photo.alt ?? `Foto ${index + 1}`}
-                  loading="lazy"
+                  width={96}
+                  height={96}
                   className={clsx(
                     // Tamanhos responsivos das thumbs
                     "h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 object-cover",
@@ -83,6 +87,6 @@ const PhotoVisualizer: React.FC<PhotoVisualizerProps> = ({
       </PhotoProvider>
     </div>
   );
-};
+}
 
-export default PhotoVisualizer;
+

@@ -1,3 +1,5 @@
+'use client';
+
 import { CaretDoubleUpIcon } from "@phosphor-icons/react";
 import clsx from "clsx";
 import React, { useCallback, useEffect, useState, type ReactNode } from "react";
@@ -24,7 +26,7 @@ interface ScrollButtonProps
  * - Só aparece após rolar a página (showAfterPx).
  * - Ao clicar, rola para o topo.
  */
-const ScrollButton: React.FC<ScrollButtonProps> = ({
+export default function ScrollButton({
   variant = "filled",
   icon,
   showAfterPx = 200,
@@ -33,7 +35,7 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({
   className,
   onClick,
   ...props
-} : ScrollButtonProps) => {
+} : ScrollButtonProps) {
   const [visible, setVisible] = useState(false);
 
   // Atualiza visibilidade conforme rolagem
@@ -82,6 +84,6 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({
       </div>
     </button>
   );
-};
+}
 
-export default ScrollButton;
+

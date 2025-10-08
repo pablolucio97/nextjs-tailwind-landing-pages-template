@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from "clsx";
 import React, { useMemo, useState } from "react";
 
@@ -38,7 +40,7 @@ const DEFAULT_LABELS = ["Muito ruim", "Ruim", "Ok", "Bom", "Excelente"];
  * - **Acessível**: `role="radiogroup"`/`role="radio"`, setas do teclado, Home/End.
  * - **UX**: rótulo muda no **hover** e acompanha o `value` controlado.
  */
-const EmojisRating: React.FC<EmojisRatingProps> = ({
+export default function EmojisRating({
   value,
   onChange,
   onHoverChange,
@@ -50,7 +52,7 @@ const EmojisRating: React.FC<EmojisRatingProps> = ({
   containerClassName,
   labelClassName,
   emojiClassName,
-}) => {
+}) {
   const [hoverValue, setHoverValue] = useState<number | null>(null);
   const isInteractive = !readOnly && !disabled;
 
@@ -141,6 +143,6 @@ const EmojisRating: React.FC<EmojisRatingProps> = ({
       )}
     </div>
   );
-};
+}
 
-export default EmojisRating;
+
