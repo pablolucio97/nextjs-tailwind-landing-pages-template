@@ -1,3 +1,5 @@
+'use client';
+
 import { motion, useInView } from "motion/react";
 import React, { useRef } from "react";
 
@@ -14,13 +16,13 @@ interface RevealContainerProps {
 }
 
 /** Container de animação com efeito reveal up. Para ver o efeito, envolva o conteúdo em um <ZoomContainer> e garanta que o componente esteja dentro de algum container que tenha altura mínima para scrolar a página.*/
-const RevealContainer: React.FC<RevealContainerProps> = ({
+export default function RevealContainer({
   children,
   visibilityAmount = 0.25,
   once = false,
   offSet = 80,
   className
-}: RevealContainerProps) => {
+}: RevealContainerProps) {
   const ref = useRef<HTMLDivElement | null>(null);
 
   // Detecta visibilidade
@@ -40,6 +42,6 @@ const RevealContainer: React.FC<RevealContainerProps> = ({
       {children}
     </motion.div>
   );
-};
+}
 
-export default RevealContainer;
+

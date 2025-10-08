@@ -1,3 +1,5 @@
+'use client';
+
 import { collapseLongString } from "@/utils/format";
 import clsx from "clsx";
 import { forwardRef, useId, useMemo } from "react";

@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from "clsx";
 import React from "react";
 import { Check } from "@phosphor-icons/react";
@@ -31,12 +33,12 @@ export interface StepProgressProps {
  * - Passo atual: círculo azul com número e rótulo em destaque.
  * - Próximos passos: círculo azul e conector azul.
  */
-const StepProgress: React.FC<StepProgressProps> = ({
+export default function StepProgress({
   steps,
   currentStep,
   vertical = false,
   className,
-}) => {
+}) {
   const normalized = steps.map((s) => (typeof s === "string" ? { label: s } : s));
   const lastIndex = normalized.length - 1;
 
@@ -137,6 +139,6 @@ const StepProgress: React.FC<StepProgressProps> = ({
       </ol>
     </nav>
   );
-};
+}
 
-export default StepProgress;
+

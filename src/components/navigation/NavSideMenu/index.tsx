@@ -1,3 +1,5 @@
+'use client';
+
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 import { CaretDownIcon, CaretRightIcon } from "@phosphor-icons/react";

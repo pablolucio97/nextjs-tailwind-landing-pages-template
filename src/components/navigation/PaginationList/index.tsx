@@ -1,3 +1,5 @@
+'use client';
+
 import {
   CaretDoubleLeftIcon,
   CaretDoubleRightIcon,
@@ -28,7 +30,7 @@ interface ListPaginationProps {
   lastIcon?: React.ReactNode;
 }
 
-const ListPagination: React.FC<ListPaginationProps> = ({
+export default function ListPagination({
   page,
   itemsPerPage = 10,
   pagesToShow = 5,
@@ -40,7 +42,7 @@ const ListPagination: React.FC<ListPaginationProps> = ({
   leftIcon,
   firstIcon,
   lastIcon,
-}) => {
+}) {
   const [itemsPerPageState, setItemsPerPageState] = useState(itemsPerPage);
 
   const totalPages = Math.max(
@@ -221,6 +223,6 @@ const ListPagination: React.FC<ListPaginationProps> = ({
       </nav>
     </section>
   );
-};
+}
 
-export default ListPagination;
+

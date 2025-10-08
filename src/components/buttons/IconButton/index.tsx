@@ -1,3 +1,5 @@
+'use client';
+
 import {
   ChatCircleIcon,
   EyeIcon,
@@ -27,7 +29,7 @@ interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 /** Componente de botão de ícone. */
-const IconButton: React.FC<IconButtonProps> = ({
+export default function IconButton({
   loading,
   variant = "filled",
   iconSize = sizes.medium,
@@ -35,7 +37,7 @@ const IconButton: React.FC<IconButtonProps> = ({
   iconName = "heart",
   icon,
   ...props
-}: IconButtonProps) => {
+}: IconButtonProps) {
   return (
     <button
       className={`flex items-center justify-center w-fit p-2 rounded-md ${
@@ -70,6 +72,6 @@ const IconButton: React.FC<IconButtonProps> = ({
       {!iconName && icon && icon}
     </button>
   );
-};
+}
 
-export default IconButton;
+

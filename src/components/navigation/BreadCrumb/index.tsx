@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from "clsx";
 import React, { useMemo } from "react";
 
@@ -32,14 +34,14 @@ export interface BreadcrumbProps {
  * - **Acessível**: navegação semântica com `<nav aria-label="breadcrumb">` e `<ol>`.
  * - **Navegação real**: cada item (exceto o atual) é um link `<a href="/...">`.
  */
-const Breadcrumb: React.FC<BreadcrumbProps> = ({
+export default function Breadcrumb({
   currentPath,
   rootLabel = "Home",
   labelMap,
   transformLabel = defaultTransform,
   separator = "/",
   className,
-}: BreadcrumbProps) => {
+}: BreadcrumbProps) {
   const path =
     typeof window !== "undefined"
       ? currentPath ?? window.location.pathname
@@ -114,9 +116,8 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
       </ol>
     </nav>
   );
-};
+}
 
-export default Breadcrumb;
 
 /** Transforma "job-details" -> "Job Details" */
 function defaultTransform(segment: string) {

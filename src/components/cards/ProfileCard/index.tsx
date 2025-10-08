@@ -1,3 +1,6 @@
+'use client';
+
+import Image from "next/image";
 import React from "react";
 
 interface ProfileCardProps {
@@ -14,12 +17,12 @@ interface ProfileCardProps {
 /**
  * Componente de cartão de perfil de usuário.
  */
-const ProfileCard: React.FC<ProfileCardProps> = ({
+export default function ProfileCard({
   avatarUrl,
   userName,
   userRole,
   bio,
-}: ProfileCardProps) => {
+}: ProfileCardProps) {
   return (
     <div
       className="
@@ -29,9 +32,11 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
       "
     >
       {/* Avatar */}
-      <img
+      <Image
         src={avatarUrl}
         alt={`Foto de ${userName}`}
+        width={128}
+        height={128}
         className="w-32 h-32 rounded-full object-cover mb-4"
       />
 
@@ -51,7 +56,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
       )}
     </div>
   );
-};
+}
 
-export default ProfileCard;
+
 export type { ProfileCardProps };

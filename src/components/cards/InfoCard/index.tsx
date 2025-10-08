@@ -1,3 +1,5 @@
+'use client';
+
 interface InfoCardProps {
   /** Título do card */
   title: string;
@@ -11,12 +13,12 @@ interface InfoCardProps {
 /**
  * Componente para exibir dados em forma de card.
  */
-const InfoCard: React.FC<InfoCardProps> = ({
+export default function InfoCard({
   title,
   text,
   icon,
   itemsPosition = "left",
-}: InfoCardProps) => {
+}: InfoCardProps) {
   return (
     <div
       className={`flex flex-col  justify-center ${
@@ -44,6 +46,6 @@ const InfoCard: React.FC<InfoCardProps> = ({
       </div>
     </div>
   );
-};
+}
 
-export default InfoCard;
+

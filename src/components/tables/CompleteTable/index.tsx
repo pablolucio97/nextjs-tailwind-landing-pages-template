@@ -1,3 +1,5 @@
+'use client';
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import SearchInput from "@/components/tables/CompleteTable/components/SearchInput";
 import { compareDataType, formatCurrency, type Currency } from "@/utils/format";
@@ -194,7 +196,7 @@ const DraggableTH: React.FC<DraggableTHProps> = ({
 };
 
 /* ------------------------- Component --------------------------- */
-export const CompleteTable: React.FC<CompleteTableProps> = ({
+export default function CompleteTable({
   data,
   tableHeadersMap,
   columnLabels,
@@ -215,7 +217,7 @@ export const CompleteTable: React.FC<CompleteTableProps> = ({
   headerClassName,
   searchClassName,
   paginationClassName,
-}) => {
+}) {
   const initialCols = useMemo(() => {
     const storedCols = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
     if (
@@ -724,6 +726,6 @@ export const CompleteTable: React.FC<CompleteTableProps> = ({
       </div>
     </DndProvider>
   );
-};
+}
 
-export default CompleteTable;
+

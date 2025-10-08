@@ -1,3 +1,5 @@
+'use client';
+
 import { capitalizeFirst, formatDate } from "@/utils/format";
 import { FlagCheckeredIcon, MapPinIcon } from "@phosphor-icons/react";
 import clsx from "clsx";
@@ -27,13 +29,13 @@ export interface TimelineProps {
  * Timeline — vertical alternando lados (md+), com espinha global e
  * “máscaras” por item para iniciar/encerrar visualmente a linha.
  */
-const Timeline: React.FC<TimelineProps> = ({
+export default function Timeline({
   events,
   reverseOrder = false,
   firstIcon,
   lastIcon,
   className,
-}) => {
+}) {
   if (!events?.length) return null;
 
   const ordered = reverseOrder ? [...events].reverse() : events;
@@ -193,9 +195,8 @@ const Timeline: React.FC<TimelineProps> = ({
       </ol>
     </section>
   );
-};
+}
 
-export default Timeline;
 
 /* ===================== Subcomponentes ===================== */
 

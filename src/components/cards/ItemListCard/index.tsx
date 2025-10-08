@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from "clsx";
 import type { ReactNode } from "react";
 
@@ -16,14 +18,14 @@ export interface ItemListCardProps {
   descriptionClassName?: string;
 }
 
-const ItemListCard = ({
+export default function ItemListCard({
   icon,
   title,
   description,
   containerClassName,
   titleClassName,
   descriptionClassName,
-}: ItemListCardProps) => {
+}: ItemListCardProps) {
   return (
     <div
       className={clsx(
@@ -46,6 +48,6 @@ const ItemListCard = ({
       </div>
     </div>
   );
-};
+}
 
-export default ItemListCard;
+

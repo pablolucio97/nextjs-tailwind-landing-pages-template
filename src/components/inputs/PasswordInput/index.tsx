@@ -1,3 +1,5 @@
+'use client';
+
 import { EyeClosed as EyeClosedIcon, Eye as EyeIcon } from "@phosphor-icons/react";
 import clsx from "clsx";
 import type { InputHTMLAttributes } from "react";

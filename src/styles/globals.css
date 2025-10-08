@@ -88,10 +88,10 @@
 @theme {--color-destructive-950: #2b0009;}
 
 @theme {
-  --color-background: #aaddaa;  /* light mode */
+  --color-background: #F6F5F7;  /* light mode */
   --color-foreground: #1F1F1F;  /* light mode */
-  --color-bg-card: #aaddaa;  /* light mode */
-  --color-border-card: #aaddaa;  /* light mode */
+  --color-bg-card: #ffffff;  /* light mode */
+  --color-border-card: #ffffff;  /* light mode */
 
     --font-primary: "Work Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
                Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
@@ -107,10 +107,11 @@
 /* Class override so a `.dark` class wins regardless of system */
 :root.dark {
   --color-background: #111111;
-  --color-foreground: #FFaaFC;
+  --color-foreground: #FFFEFC;
   --color-bg-card: #222222;
   --color-border-card: #444444;
 }
+
 
 *{
    box-sizing: border-box;

@@ -1,3 +1,5 @@
+'use client';
+
 import { sizes } from "@/theme/theme";
 import { AppleLogoIcon } from "@phosphor-icons/react";
 import type { ButtonHTMLAttributes } from "react";
@@ -19,14 +21,14 @@ interface AppleSignInButtonProps
 }
 
 /** Botão de autenticação baseado no design Apple */
-const AppleSignInButton: React.FC<AppleSignInButtonProps> = ({
+export default function AppleSignInButton({
   label = "Entrar com a Apple",
   loading,
   variant = "black",
   iconVariant = "scale",
   iconColor = "#ffffff",
   ...props
-}: AppleSignInButtonProps) => {
+}: AppleSignInButtonProps) {
   return (
     <button
       className={`flex items-center justify-center w-fit px-3 py-2 sm:px-4 sm:py-3 rounded-md ${
@@ -108,7 +110,7 @@ const AppleSignInButton: React.FC<AppleSignInButtonProps> = ({
       )}
     </button>
   );
-};
+}
 
-export default AppleSignInButton;
+
 export type { AppleSignInButtonProps };

@@ -1,3 +1,5 @@
+'use client';
+
 import { Rating, type RatingProps } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import clsx from "clsx";
@@ -14,7 +16,7 @@ export interface StarsRatingProps extends RatingProps {
   labelClassName?: string;
 }
 
-const StarsRating: React.FC<StarsRatingProps> = ({
+export default function StarsRating({
   labels = ["Muito ruim", "Ruim", "Ok", "Bom", "Excelente"],
   showLabels = true,
   containerClassName,
@@ -23,7 +25,7 @@ const StarsRating: React.FC<StarsRatingProps> = ({
   onChange, // <-- interceptamos para limpar hoverValue
   onHoverChange, // <-- ainda disponibilizamos
   ...rest
-}) => {
+}) {
   const [hoverValue, setHoverValue] = useState<number | null>(null);
 
   // Map 0..5 → label (0 = sem rótulo; 1..5 pegam labels[0..4])
@@ -75,6 +77,6 @@ const StarsRating: React.FC<StarsRatingProps> = ({
       )}
     </div>
   );
-};
+}
 
-export default StarsRating;
+

@@ -1,3 +1,5 @@
+'use client';
+
 import { XIcon } from "@phosphor-icons/react";
 import clsx from "clsx";
 import React from "react";
@@ -43,7 +45,7 @@ export interface DestructiveModalProps {
   ariaDescribedby?: string;
 }
 
-export const DestructiveModal: React.FC<DestructiveModalProps> = ({
+export default function DestructiveModal({
   open,
   onClose,
   title,
@@ -65,7 +67,7 @@ export const DestructiveModal: React.FC<DestructiveModalProps> = ({
   cancelButtonClassName,
   confirmButtonClassName,
   confirmMessage,
-}) => {
+}) {
   const titleId = title
     ? ariaLabelledby ?? "destructive-modal-title"
     : undefined;
@@ -166,6 +168,6 @@ export const DestructiveModal: React.FC<DestructiveModalProps> = ({
       </div>
     </Modal>
   );
-};
+}
 
-export default DestructiveModal;
+

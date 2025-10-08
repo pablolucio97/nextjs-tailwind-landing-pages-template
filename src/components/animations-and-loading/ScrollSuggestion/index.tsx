@@ -1,3 +1,5 @@
+'use client';
+
 import { MouseScrollIcon } from "@phosphor-icons/react";
 import clsx from "clsx";
 
@@ -17,14 +19,14 @@ interface ScrollSugestionProps {
 }
 
 /** Componente que sugere ao usuário que ele deve rolar a página para baixo. */
-const ScrollSuggestion: React.FC<ScrollSugestionProps> = ({
+export default function ScrollSuggestion({
   helperText,
   animation = "bounce",
   containerClassName,
   iconClassName,
   textClassName,
   icon,
-}) => {
+}) {
   return (
     <div
       className={clsx("flex flex-col items-center gap-y-2", containerClassName)}
@@ -46,6 +48,6 @@ const ScrollSuggestion: React.FC<ScrollSugestionProps> = ({
       </span>
     </div>
   );
-};
+}
 
-export default ScrollSuggestion;
+

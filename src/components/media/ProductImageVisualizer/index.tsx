@@ -1,3 +1,6 @@
+'use client';
+
+import Image from "next/image";
 import { ArrowLeftIcon, ArrowRightIcon } from "@phosphor-icons/react";
 import clsx from "clsx";
 import React, { useEffect, useMemo, useState } from "react";
@@ -23,13 +26,13 @@ export interface ProductImageVisualizerProps {
   showHelperText?: boolean;
 }
 
-const ProductImageVisualizer: React.FC<ProductImageVisualizerProps> = ({
+export default function ProductImageVisualizer({
   images,
   className,
   mainImageClassName,
   thumbClassName,
   showHelperText = true,
-}) => {
+}) {
   const safeImages = useMemo(() => images?.filter(Boolean) ?? [], [images]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const current = safeImages[currentIndex];
@@ -78,10 +81,11 @@ const ProductImageVisualizer: React.FC<ProductImageVisualizerProps> = ({
               aria-label={img.alt ?? `Imagem ${idx + 1}`}
               aria-current={active ? "true" : undefined}
             >
-              <img
+              <Image
                 src={img.src}
                 alt={img.alt ?? `Miniatura ${idx + 1}`}
-                loading="lazy"
+                width={120}
+                height={120}
                 className={clsx(
                   "w-full object-cover",
                   active
@@ -150,9 +154,11 @@ const ProductImageVisualizer: React.FC<ProductImageVisualizerProps> = ({
             )}
             onMouseMove={handleMove}
           >
-            <img
+            <Image
               src={current.src}
               alt={current.alt ?? `Imagem ${currentIndex + 1}`}
+              width={1024}
+              height={768}
               // Zoom suave no hover; transform-origin acompanha o cursor
               style={{ transformOrigin: origin }}
               className={clsx(
@@ -171,6 +177,6 @@ const ProductImageVisualizer: React.FC<ProductImageVisualizerProps> = ({
       </div>
     </div>
   );
-};
+}
 
-export default ProductImageVisualizer;
+

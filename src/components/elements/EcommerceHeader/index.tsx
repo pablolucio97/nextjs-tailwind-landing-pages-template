@@ -1,3 +1,6 @@
+'use client';
+
+import Image from "next/image";
 import {
   HeartIcon,
   ListIcon,
@@ -112,9 +115,11 @@ const LeftContainer: React.FC<LeftContainerProps> = ({
           className="flex items-center gap-5 sm:gap-2"
         >
           {logoSrc ? (
-            <img
+            <Image
               src={logoSrc}
               alt={logoAlt || "Logo"}
+              width={120}
+              height={36}
               className="block h-7 w-auto sm:h-8 lg:h-9 select-none"
             />
           ) : null}
@@ -158,9 +163,11 @@ export interface LogoProps {
   className?: string;
 }
 const Logo: React.FC<LogoProps> = ({ src, alt, className }) => (
-  <img
+  <Image
     src={src}
     alt={alt}
+    width={120}
+    height={36}
     className={clsx("block h-7 w-auto sm:h-8 lg:h-9 select-none", className)}
   />
 );

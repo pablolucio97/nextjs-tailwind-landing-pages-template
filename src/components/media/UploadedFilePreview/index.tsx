@@ -1,3 +1,6 @@
+'use client';
+
+import Image from "next/image";
 import { convertKbToMb } from "@/utils/convertions";
 import {
   FileIcon,
@@ -41,14 +44,14 @@ export interface UploadedFilePreviewProps {
  * - Mostra nome, tamanho, ícone por tipo e botão de remoção acessível.
  * - Suporta preview de **imagem** e **vídeo**; outros tipos exibem um placeholder com link.
  */
-const UploadedFilePreview: React.FC<UploadedFilePreviewProps> = ({
+export default function UploadedFilePreview({
   file,
   onCancel,
   label = "Arquivo anexado",
   enableFileOnOtherTab = false,
   containerClassName,
   mediaClassName,
-}: UploadedFilePreviewProps) => {
+}: UploadedFilePreviewProps) {
   const { name, uri, size, type } = file;
 
   const isImage = /^image\//.test(type);
@@ -133,11 +136,12 @@ const UploadedFilePreview: React.FC<UploadedFilePreviewProps> = ({
         <div className="w-full flex items-center">
           <InfoIcon className="text-foreground/60" size={24} weight="regular" />
           {isImage ? (
-            <img
+            <Image
               src={uri}
               alt={name}
+              width={800}
+              height={600}
               className="w-full h-auto object-cover"
-              loading="lazy"
             />
           ) : isVideo ? (
             <video
@@ -161,6 +165,6 @@ const UploadedFilePreview: React.FC<UploadedFilePreviewProps> = ({
       </div>
     </section>
   );
-};
+}
 
-export default UploadedFilePreview;
+

@@ -1,3 +1,5 @@
+'use client';
+
 import MaskedTextInput from "../MaskedTextInput";
 import { brazilianCepMask } from "@/utils/masks";
 import clsx from "clsx";
@@ -12,14 +14,14 @@ interface CepPopOverInputProps {
   onSearchCep?: (cep: string) => void;
 }
 
-const CepPopOverInput: React.FC<CepPopOverInputProps> = ({
+export default function CepPopOverInput({
   shouldBeShown,
   align,
   label,
   buttonLabel,
   className,
   onSearchCep,
-}) => {
+}) {
   const [cep, setCep] = useState("");
   const [popOverVisible, setPopOverVisible] = useState(shouldBeShown);
 
@@ -78,6 +80,6 @@ const CepPopOverInput: React.FC<CepPopOverInputProps> = ({
       </button>
     </div>
   );
-};
+}
 
-export default CepPopOverInput;
+

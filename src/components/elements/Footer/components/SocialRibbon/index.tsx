@@ -1,3 +1,5 @@
+'use client';
+
 import {
   FacebookLogoIcon,
   InstagramLogoIcon,
@@ -38,12 +40,12 @@ export interface SocialRibbonProps {
   title?: string;
 }
 /** Componente SocialRibbon */
-const SocialRibbon = ({
+export default function SocialRibbon({
   items,
   iconsClassName,
   iconsWeight,
   title,
-}: SocialRibbonProps) => {
+}: SocialRibbonProps) {
   return (
     <div className="flex flex-col">
       {title && (
@@ -104,6 +106,6 @@ const SocialRibbon = ({
       </ul>
     </div>
   );
-};
+}
 
-export default SocialRibbon;
+

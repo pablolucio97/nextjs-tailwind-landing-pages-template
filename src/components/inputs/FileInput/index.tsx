@@ -1,3 +1,5 @@
+'use client';
+
 import { forwardRef, type ChangeEvent, type InputHTMLAttributes } from "react";
 
 interface FileInputProps extends InputHTMLAttributes<HTMLInputElement> {

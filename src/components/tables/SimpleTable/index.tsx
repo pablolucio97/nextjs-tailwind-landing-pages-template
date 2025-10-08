@@ -1,3 +1,5 @@
+'use client';
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import SearchInput from "@/components/tables/SimpleTable/components/SearchInput";
 import { compareDataType, type Currency } from "@/utils/format";

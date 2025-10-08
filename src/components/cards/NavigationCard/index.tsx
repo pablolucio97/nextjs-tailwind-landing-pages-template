@@ -1,3 +1,5 @@
+'use client';
+
 import { sizes } from "@/theme/theme";
 import { getThemeColor } from "@/utils/colors";
 import { ArrowRightIcon } from "@phosphor-icons/react";
@@ -12,11 +14,11 @@ interface NavigationCardProps {
 }
 
 /**Card utilizado para realizar navegação entre páginas*/
-const NavigationCard: React.FC<NavigationCardProps> = ({
+export default function NavigationCard({
   url,
   title,
   text,
-}: NavigationCardProps) => {
+}: NavigationCardProps) {
   const primaryColor = getThemeColor("--color-primary-500");
 
   return (
@@ -37,6 +39,6 @@ const NavigationCard: React.FC<NavigationCardProps> = ({
       <ArrowRightIcon color={primaryColor} size={sizes.medium} weight="bold" className="sm:hidden" />
     </a>
   );
-};
+}
 
-export default NavigationCard;
+

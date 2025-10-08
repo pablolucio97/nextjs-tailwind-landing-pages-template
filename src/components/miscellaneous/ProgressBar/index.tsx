@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from "clsx";
 import React from "react";
 
@@ -20,7 +22,7 @@ interface ProgressBarProps {
   trackColor?: string;
 }
 
-const ProgressBar: React.FC<ProgressBarProps> = ({
+export default function ProgressBar({
   label,
   value,
   max = 100,
@@ -29,7 +31,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   showPercentage = false,
   thickness = 8,
   trackColor,
-}) => {
+}) {
   const clampedMax = Math.max(1, max);
   const clampedValue = Math.min(Math.max(0, value), clampedMax);
   const pct = (clampedValue / clampedMax) * 100;
@@ -74,6 +76,6 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
       </div>
     </div>
   );
-};
+}
 
-export default ProgressBar;
+

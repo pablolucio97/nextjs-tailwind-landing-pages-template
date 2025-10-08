@@ -1,3 +1,6 @@
+'use client';
+
+import Image from "next/image";
 import clsx from "clsx";
 import React from "react";
 import Marquee from "react-fast-marquee";
@@ -50,7 +53,7 @@ export interface BrandMarqueeProps {
  * - **Acessível**: `alt` e links opcionais;
  * - **Efeito de sombra/gradiente nas bordas** para suavizar o corte visual.
  */
-const BrandMarquee: React.FC<BrandMarqueeProps> = ({
+export default function BrandMarquee({
   logos,
   title,
   speed = 40,
@@ -61,7 +64,7 @@ const BrandMarquee: React.FC<BrandMarqueeProps> = ({
   maxLogoHeightPx = 120,
   className,
   imageFilter = "none",
-}) => {
+}) {
   if (!logos?.length) return null;
 
   return (
@@ -91,10 +94,11 @@ const BrandMarquee: React.FC<BrandMarqueeProps> = ({
           <ul className="flex items-center" aria-label="Logotipos de marcas">
             {logos.map((logo, i) => {
               const imgEl = (
-                <img
+                <Image
                   src={logo.src}
                   alt={logo.alt}
-                  loading="lazy"
+                  width={160}
+                  height={56}
                   className={clsx(
                     "w-auto h-auto opacity-50 hover:opacity-100 transition-opacity",
                     "object-contain",
@@ -134,6 +138,6 @@ const BrandMarquee: React.FC<BrandMarqueeProps> = ({
       </div>
     </section>
   );
-};
+}
 
-export default BrandMarquee;
+

@@ -1,3 +1,5 @@
+'use client';
+
 import { sizes } from "@/theme/theme";
 import { GithubLogoIcon } from "@phosphor-icons/react";
 import type { ButtonHTMLAttributes } from "react";
@@ -19,14 +21,14 @@ interface GitHubSignInButtonProps
 }
 
 /** Botão de autenticação baseado no GitHub. */
-const GitHubSignInButton: React.FC<GitHubSignInButtonProps> = ({
+export default function GitHubSignInButton({
   label = "Entrar com o GitHub",
   loading,
   variant = "black",
   iconVariant = "scale",
   iconColor = "#ffffff",
   ...props
-}: GitHubSignInButtonProps) => {
+}: GitHubSignInButtonProps) {
   return (
     <button
       className={`flex items-center justify-center w-fit px-3 py-2 sm:px-4 sm:py-3 rounded-md ${
@@ -96,7 +98,7 @@ const GitHubSignInButton: React.FC<GitHubSignInButtonProps> = ({
       )}
     </button>
   );
-};
+}
 
-export default GitHubSignInButton;
+
 export type { GitHubSignInButtonProps };

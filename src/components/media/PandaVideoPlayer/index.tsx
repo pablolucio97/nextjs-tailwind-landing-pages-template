@@ -1,3 +1,5 @@
+'use client';
+
 import { getThemeColor } from "@/utils/colors";
 import React from "react";
 
@@ -12,14 +14,14 @@ export interface PandaVideoPlayerProps {
   controlsColor?: string; // e.g. "#ffffff"
 }
 
-const PandaVideoPlayer: React.FC<PandaVideoPlayerProps> = ({
+export default function PandaVideoPlayer({
   // Public demo defaults so it plays out of the box:
   videoId = "5b858a22-915a-4493-9fc2-dfb74da90470",
   // Public demo zone:
   zone = "d031816a-48f",
   controlsColor,
   themeColor,
-}) => {
+}) {
   const base = `https://player-vz-${zone}.tv.pandavideo.com.br/embed/`;
 
   const primaryColor = getThemeColor("--color-primary-500");
@@ -52,6 +54,6 @@ const PandaVideoPlayer: React.FC<PandaVideoPlayerProps> = ({
       </div>
     </div>
   );
-};
+}
 
-export default PandaVideoPlayer;
+

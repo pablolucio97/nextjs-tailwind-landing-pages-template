@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from "clsx";
 import { useRef } from "react";
 import SignatureCanvas from "react-signature-canvas";
@@ -19,7 +21,7 @@ interface CanvasSignatureProps {
   onClear?: () => void;
 }
 
-const CanvasSignature = ({
+export default function CanvasSignature({
   label,
   helperText,
   errorMessage,
@@ -27,7 +29,7 @@ const CanvasSignature = ({
   height = 200,
   onSave,
   onClear,
-}: CanvasSignatureProps) => {
+}: CanvasSignatureProps) {
   const canvasRef = useRef<SignatureCanvas>(null);
 
   const handleClear = () => {
@@ -82,6 +84,6 @@ const CanvasSignature = ({
       </div>
     </div>
   );
-};
+}
 
-export default CanvasSignature;
+

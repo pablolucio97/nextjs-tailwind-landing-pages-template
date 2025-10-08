@@ -1,3 +1,5 @@
+'use client';
+
 // InternationalPhoneInput.tsx
 import clsx from "clsx";
 import type { InputHTMLAttributes } from "react";

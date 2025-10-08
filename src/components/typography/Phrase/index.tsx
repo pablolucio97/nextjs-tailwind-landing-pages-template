@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from "clsx";
 import React from "react";
 
@@ -13,11 +15,11 @@ interface PhraseProps {
 /**
  * Componente de textos curtos. Ideal para exibir frases.
  */
-const Phrase: React.FC<PhraseProps> = ({
+export default function Phrase({
   content,
   weight = "regular",
   className,
-}: PhraseProps) => {
+}: PhraseProps) {
   return (
     <p
       className={clsx(
@@ -28,6 +30,6 @@ const Phrase: React.FC<PhraseProps> = ({
       {content}
     </p>
   );
-};
+}
 
-export default Phrase;
+

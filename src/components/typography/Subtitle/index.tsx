@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from "clsx";
 import React from "react";
 
@@ -15,12 +17,12 @@ interface TitleProps {
 /**
  * Componente de subtítulo. Ideal para exibir títulos menores.
  */
-const Subtitle: React.FC<TitleProps> = ({
+export default function Subtitle({
   content,
   weight = "semibold",
   element = "h2",
   className,
-}: TitleProps) => {
+}: TitleProps) {
   return (
     <>
       {React.createElement(
@@ -35,6 +37,6 @@ const Subtitle: React.FC<TitleProps> = ({
       )}
     </>
   );
-};
+}
 
-export default Subtitle;
+

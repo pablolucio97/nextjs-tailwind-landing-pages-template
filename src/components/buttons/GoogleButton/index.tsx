@@ -1,3 +1,5 @@
+'use client';
+
 import { sizes } from "@/theme/theme";
 import { GoogleLogoIcon } from "@phosphor-icons/react";
 import type { ButtonHTMLAttributes } from "react";
@@ -19,14 +21,14 @@ interface GoogleSignInButtonProps
 }
 
 /** Botão de autenticação baseado no Google. */
-const GoogleSignInButton: React.FC<GoogleSignInButtonProps> = ({
+export default function GoogleSignInButton({
   label = "Entrar com o Google",
   loading,
   variant = "red",
   iconVariant = "scale",
   iconColor = "#ffffff",
   ...props
-}: GoogleSignInButtonProps) => {
+}: GoogleSignInButtonProps) {
   return (
     <button
       className={`flex items-center justify-center w-full px-3 py-2 sm:px-4  rounded-md font-semibold ${
@@ -96,7 +98,7 @@ const GoogleSignInButton: React.FC<GoogleSignInButtonProps> = ({
       )}
     </button>
   );
-};
+}
 
-export default GoogleSignInButton;
+
 export type { GoogleSignInButtonProps };
