@@ -59,10 +59,8 @@ export const DefaultVisitor: Story = {
             <EcommerceHeader.CepPopOverInput
               shouldBeShown={openCep}
               align="left"
-              onSearchCep={(cep) => {
+              onSearchCep={() => {
                 // Simula busca de frete / salvamento de CEP
-                // eslint-disable-next-line no-console
-                console.log("Buscar frete para CEP:", cep);
                 setOpenCep(false);
               }}
             />

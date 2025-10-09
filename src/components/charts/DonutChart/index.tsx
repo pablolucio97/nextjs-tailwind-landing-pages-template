@@ -171,7 +171,7 @@ export default function DonutChart({
   chartClassName,
   children,
   ...rest
-}) {
+} : DonutChartRootProps) {
   const computedHeight = height ?? heightMap[size];
 
   const total = React.useMemo(

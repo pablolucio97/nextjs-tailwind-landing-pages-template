@@ -16,7 +16,6 @@ export const Default: Story = {
     textToCopy: "Hello World",
     label: "Copy text",
     variant: "outlined",
-    iconSize: 24,
     onCopy: () => alert("Text copied to clipboard!"),
   },
   argTypes: {
