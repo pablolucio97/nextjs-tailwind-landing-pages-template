@@ -51,7 +51,6 @@ export default function ProductImageVisualizer({
     setCurrentIndex((i) => (i === safeImages.length - 1 ? 0 : i + 1));
 
   // --- Zoom: ajusta transform-origin baseado no cursor
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [origin, setOrigin] = useState<string>("50% 50%");
   const handleMove: React.MouseEventHandler<HTMLDivElement> = (e) => {
     const r = e.currentTarget.getBoundingClientRect();

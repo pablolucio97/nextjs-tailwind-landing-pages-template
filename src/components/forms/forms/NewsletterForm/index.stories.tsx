@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 // index.stories.tsx
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";

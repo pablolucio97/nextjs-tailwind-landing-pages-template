@@ -57,7 +57,6 @@ export default function BarsRating({
         "color-mix(in oklab, var(--color-foreground) 30%, transparent)",
       itemStrokeWidth: 1.5,
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isHovering]);
 
   return (

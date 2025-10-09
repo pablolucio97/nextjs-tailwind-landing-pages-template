@@ -2,6 +2,7 @@
 
 import clsx from "clsx";
 import React, { useMemo } from "react";
+import Link from "next/link";
 
 export interface BreadcrumbProps {
   /**
@@ -72,12 +73,12 @@ export default function Breadcrumb({
         {/* Raiz */}
         <li className="shrink-0">
           {items.length ? (
-            <a
+            <Link
               href="/"
               className="text-foreground/70 hover:text-foreground underline-offset-4 hover:underline transition"
             >
               {rootLabel}
-            </a>
+            </Link>
           ) : (
             <span className="font-semibold text-foreground">{rootLabel}</span>
           )}

@@ -1,10 +1,11 @@
 // index.stories.tsx
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import BannerCarousel, { type BannerCarouselProps } from ".";
+import Image from "next/image";
 
 const makeSlides = (count = 5) =>
   Array.from({ length: count }).map((_, i) => (
-    <img
+    <Image
       key={i}
       src={`https://picsum.photos/seed/banner-${i}/1280/480`}
       alt={`Banner ${i + 1}`}
