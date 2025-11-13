@@ -5,7 +5,7 @@ import UpFadeText, { type UpFadeTextRef } from "./index";
 type Story = StoryObj<typeof UpFadeText>;
 
 const meta: Meta<typeof UpFadeText> = {
-  title: "Animações/UpFadeText",
+  title: "Animations and Loading/UpFadeText",
   component: UpFadeText,
   tags: ["autodocs"],
   parameters: {
