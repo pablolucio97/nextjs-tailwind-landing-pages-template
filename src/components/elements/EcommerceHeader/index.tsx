@@ -236,7 +236,7 @@ const FavoritesButton: React.FC<FavoritesButtonProps> = ({
   ...rest
 }) => (
   <IconButton aria-label="Favoritos" badge={count} {...rest}>
-    <HeartIcon className="h-5 w-5" />
+    <HeartIcon className="h-5 w-5 text-foreground" />
   </IconButton>
 );
 
@@ -246,7 +246,7 @@ export interface CartButtonProps
 }
 const CartButton: React.FC<CartButtonProps> = ({ count = 0, ...rest }) => (
   <IconButton aria-label="Carrinho" badge={count} {...rest}>
-    <ShoppingCartIcon className="h-5 w-5" />
+    <ShoppingCartIcon className="h-5 w-5 text-foreground" />
   </IconButton>
 );
 

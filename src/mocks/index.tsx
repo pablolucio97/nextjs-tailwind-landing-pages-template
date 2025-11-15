@@ -1,4 +1,5 @@
 import type { PhotoVisualizerProps } from "@/components/media/PhotoVisualizer";
+import { Product } from "@/components/navigation/Cart/components/CartItem";
 import type { TopMenuProps } from "@/components/navigation/TopMenu";
 import {
   DeviceMobileIcon,
@@ -832,5 +833,84 @@ export const samplePhotos: PhotoVisualizerProps["photos"] = [
   {
     src: "https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?auto=format&fit=crop&w=900&q=60",
     alt: "Código na tela",
+  },
+];
+
+export const mockedProducts: Product[] = [
+  {
+    id: "1",
+    name: "Produto A",
+    price: 29.99,
+    quantity: 1,
+    imageUrl:
+      "https://images.unsplash.com/photo-1589578228447-e1a4e481c6c8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGtleWJvYXJkfGVufDB8fDB8fHww",
+  },
+  {
+    id: "2",
+    name: "Produto B",
+    price: 49.99,
+    quantity: 2,
+    imageUrl:
+      "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bW91c2V8ZW58MHx8MHx8fDA%3D",
+  },
+  {
+    id: "3",
+    name: "Produto C",
+    price: 19.99,
+    quantity: 1,
+    imageUrl:
+      "https://images.unsplash.com/photo-1591488320449-011701bb6704?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "4",
+    name: "Produto D",
+    price: 99.99,
+    quantity: 1,
+    imageUrl:
+      "https://images.unsplash.com/photo-1669480380758-4b163a33f6f9?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "5",
+    name: "Produto E",
+    price: 9.99,
+    quantity: 5,
+    imageUrl:
+      "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "6",
+    name: "Produto E",
+    price: 9.99,
+    quantity: 5,
+    imageUrl:
+      "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "7",
+    name: "Produto E",
+    price: 9.99,
+    quantity: 5,
+    imageUrl:
+      "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+];
+
+export const mockedProductDetails = [
+  {
+    id: "1",
+    name: "Processador Ryzen 5 5600G",
+    description:
+      "Processador AMD Ryzen 5 5600G com 6 núcleos e 12 threads, frequência base de 3.6 GHz e turbo de até 4.6 GHz. Ideal para jogos e multitarefas.",
+    price: 799.9,
+    oldPrice: 999.9,
+    discount: 20,
+    photos: [
+      {
+        src: "https://www.kabum.com.br/_next/image?url=https%3A%2F%2Fimages8.kabum.com.br%2Fprodutos%2Ffotos%2F520368%2Fprocessador-amd-ryzen-5-5600gt-3-6-ghz-4-6ghz-max-turbo-cache-4mb-6-nucleos-12-threads-am4-100-100001488box_1708024586_gg.jpg&w=640&q=75",
+      },
+      {
+        src: "https://www.kabum.com.br/_next/image?url=https%3A%2F%2Fimages8.kabum.com.br%2Fprodutos%2Ffotos%2F520368%2Fprocessador-amd-ryzen-5-5600gt-3-6-ghz-4-6ghz-max-turbo-cache-4mb-6-nucleos-12-threads-am4-100-100001488box_1708024586_gg.jpg&w=640&q=75",
+      },
+    ],
   },
 ];
