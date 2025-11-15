@@ -104,9 +104,8 @@ export default function GenericProductDetails({
       : undefined;
 
   const discountPercentage =
-    normalizedDiscount ?? (derivedDiscount && derivedDiscount > 0
-      ? derivedDiscount
-      : undefined);
+    normalizedDiscount ??
+    (derivedDiscount && derivedDiscount > 0 ? derivedDiscount : undefined);
 
   const formattedPrice = formatBRL(product.price);
   const formattedOldPrice = product.oldPrice
@@ -262,11 +261,11 @@ export default function GenericProductDetails({
             {product.description}
           </p>
         </div>
-        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div className="mt-6 flex flex-col gap-3 ">
           <button
             type="button"
             onClick={handleAddToCart}
-            className="w-fit items-center justify-center gap-2 rounded-xl bg-primary-500 px-4 py-3 text-base font-semibold text-white shadow-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
+            className="w-full max-w-69 items-center justify-center gap-2 rounded-xl bg-primary-500 px-4 py-3 text-base font-semibold text-white shadow-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
           >
             <ShoppingCartIcon className="h-5 w-5" weight="bold" />
             Adicionar ao carrinho
@@ -275,7 +274,7 @@ export default function GenericProductDetails({
             <button
               type="button"
               onClick={handleAddToFavorites}
-              className="w-fit items-center justify-center gap-2 rounded-xl border border-foreground/15 px-4 py-3 text-sm font-medium text-foreground transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 sm:flex-none"
+              className="w-fit items-center justify-center gap-2 rounded-xl border border-foreground/15 px-4 py-3 text-sm font-medium text-foreground transition focus-visible:outline-none focus-visible:ring-2  sm:flex-none"
             >
               <HeartIcon className="h-5 w-5" weight="bold" />
               Favorito
@@ -283,7 +282,7 @@ export default function GenericProductDetails({
             <button
               type="button"
               onClick={handleShare}
-              className="w-fit flex items-center justify-center gap-2 rounded-xl border border-foreground/15 px-4 py-3 text-sm font-medium text-foreground transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 sm:flex-none"
+              className="w-fit flex items-center justify-center gap-2 rounded-xl border border-foreground/15 px-4 py-3 text-sm font-medium text-foreground transition focus-visible:outline-none focus-visible:ring-2  sm:flex-none"
             >
               <ShareNetworkIcon className="h-5 w-5" weight="bold" />
               Compartilhar

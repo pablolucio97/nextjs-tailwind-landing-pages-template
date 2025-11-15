@@ -1,5 +1,7 @@
 "use client";
 import CartCard from "@/components/cards/CartCard";
+import FavoriteItemCard from "@/components/cards/FavoriteItemCard";
+import OrderSummaryCard from "@/components/cards/OrderSummaryCard";
 import EcommerceHeader from "@/components/elements/EcommerceHeader";
 import StarsParticlesHeroSection from "@/components/elements/StarsParticlesHeroSection";
 import GenericProductDetails from "@/components/miscellaneous/GenericProductDetails";
@@ -50,7 +52,18 @@ export default function Home() {
           products={mockedProducts}
         />
         <GenericProductDetails product={mockedProductDetails[0]} />
-        <CartCard products={mockedProducts} />
+        <div className="p-6 flex flex-col gap-6">
+          <CartCard products={mockedProducts} />
+          <OrderSummaryCard
+            items={mockedProducts}
+            onCheckout={() => console.log("checkout")}
+          />
+          <FavoriteItemCard
+            product={mockedProducts[0]}
+            onRemoveItem={() => console.log("Item removed from favorites")}
+            onShareItem={(url) => console.log("Share URL:", url)}
+          />
+        </div>
       </main>
     </div>
   );

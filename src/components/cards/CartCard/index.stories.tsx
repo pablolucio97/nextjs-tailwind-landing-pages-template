@@ -1,142 +1,104 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { useState } from "react";
-import { mockedProducts } from "../../../mocks";
-import Cart from "./index";
+// components/cart/CartCard/index.stories.tsx
+import type { Meta, StoryObj } from "@storybook/react";
+import type { Product } from "./components/CartItem";
+import CartCard from "./index";
 
-type Story = StoryObj<typeof Cart>;
+const MOCK_PRODUCTS: Product[] = [
+  {
+    id: "p-1",
+    name: "Fone Bluetooth ZX-100",
+    price: 249.9,
+    imageUrl:
+      "https://images.unsplash.com/photo-1518441902111-a9a1ccb306fb?q=80&w=800&auto=format&fit=crop",
+    quantity: 1,
+  },
+  {
+    id: "p-2",
+    name: "Teclado Mecânico RGB",
+    price: 399.9,
+    imageUrl:
+      "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=800&auto=format&fit=crop",
+    quantity: 2,
+  },
+  {
+    id: "p-3",
+    name: "Mouse Gamer 8K DPI",
+    price: 189.9,
+    imageUrl:
+      "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=800&auto=format&fit=crop",
+    quantity: 1,
+  },
+];
 
-const meta: Meta<typeof Cart> = {
-  title: "Navigation/Cart",
-  component: Cart,
+const meta: Meta<typeof CartCard> = {
+  title: "Cards/CartCard",
+  component: CartCard,
   tags: ["autodocs"],
   parameters: {
-    layout: "fullscreen",
+    layout: "padded",
     docs: {
       description: {
         component:
-          "Drawer de **carrinho** fixo à direita com overlay. Controlado via props `isOpen` e `onToggleOpen`. " +
-          "Os itens são passados por `products` e o total é calculado automaticamente.",
+          "CartCard é um **resumo compacto** do carrinho, ideal para sidebars ou colunas em checkout. Responsivo, dark-mode ready e com rolagem quando há muitos itens.",
       },
     },
   },
-  args: {
-    products: mockedProducts,
-    emptyCartMessage: "Seu carrinho está vazio.",
-    checkoutButtonText: "Finalizar compra",
-    keepBuyingButtonText: "Continuar comprando",
-    isOpen: true,
-  },
   argTypes: {
-    isOpen: {
-      control: "boolean",
-      description: "Estado de abertura do drawer.",
-    },
-    products: {
-      control: "object",
-      description:
-        "Lista de produtos do carrinho. Cada item deve conter ao menos `{ id, price, quantity }`.",
-    },
-    emptyCartMessage: { control: "text" },
-    checkoutButtonText: { control: "text" },
-    keepBuyingButtonText: { control: "text" },
-    onToggleOpen: { action: "toggle", table: { category: "events" } },
-    onProceedToCheckout: { action: "checkout", table: { category: "events" } },
+    products: { control: "object" },
+    emptyCartCardMessage: { control: "text" },
   },
+  decorators: [
+    (Story) => (
+      <div className="min-h-[60vh] w-full bg-background p-4 sm:p-8 text-foreground">
+        <div className="mx-auto max-w-3xl">
+          <Story />
+        </div>
+      </div>
+    ),
+  ],
 };
 export default meta;
 
-/* ===================== Stories ===================== */
+type Story = StoryObj<typeof CartCard>;
 
-export const DefaultOpen: Story = {
-  render: (args) => {
-    const [open, setOpen] = useState(true);
-    return (
-      <div className="w-full h-full">
-        <button
-          onClick={() => setOpen(true)}
-          className="fixed top-4 left-4 z-[60] rounded-md bg-primary-600 px-3 py-2 text-white"
-        >
-          Abrir carrinho
-        </button>
-        <Cart {...args} isOpen={open} onToggleOpen={() => setOpen((v) => !v)} />
-      </div>
-    );
-  },
+export const Default: Story = {
   args: {
-    products: mockedProducts,
-    emptyCartMessage: "Seu carrinho está vazio.",
-    checkoutButtonText: "Finalizar compra",
-    keepBuyingButtonText: "Continuar comprando",
+    products: MOCK_PRODUCTS,
   },
 };
 
-export const EmptyCart: Story = {
-  render: (args) => {
-    const [open, setOpen] = useState(true);
-    return (
-      <>
-        <button
-          onClick={() => setOpen(true)}
-          className="fixed top-4 left-4 z-[60] rounded-md bg-primary-600 px-3 py-2 text-white"
-        >
-          Abrir carrinho
-        </button>
-        <Cart {...args} isOpen={open} onToggleOpen={() => setOpen((v) => !v)} />
-      </>
-    );
-  },
+export const Empty: Story = {
   args: {
     products: [],
-    emptyCartMessage: "Nada por aqui ainda. 😊",
-    checkoutButtonText: "Ir para o checkout",
-    keepBuyingButtonText: "Voltar às compras",
+    emptyCartCardMessage: "Nenhum item no carrinho no momento.",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Estado vazio com mensagem customizável via `emptyCartCardMessage`.",
+      },
+    },
   },
 };
 
-export const ManyItems: Story = {
-  render: (args) => {
-    const [open, setOpen] = useState(true);
-
-    return (
-      <>
-        <button
-          onClick={() => setOpen(true)}
-          className="fixed top-4 left-4 z-[60] rounded-md bg-primary-600 px-3 py-2 text-white"
-        >
-          Abrir carrinho
-        </button>
-        <Cart
-          {...args}
-          products={mockedProducts}
-          isOpen={open}
-          onToggleOpen={() => setOpen((v) => !v)}
-        />
-      </>
-    );
-  },
+export const ManyItemsScrollable: Story = {
   args: {
-    emptyCartMessage: "Sem itens.",
-    checkoutButtonText: "Pagar agora",
-    keepBuyingButtonText: "Continuar comprando",
+    products: Array.from({ length: 12 }).map((_, i) => ({
+      id: `p-${i + 1}`,
+      name: `Produto ${i + 1} — descrição breve`,
+      price: 99.9 + i,
+      imageUrl:
+        "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=800&auto=format&fit=crop",
+      quantity: (i % 3) + 1,
+    })) as Product[],
   },
-};
-
-export const Closed: Story = {
-  render: (args) => {
-    const [open, setOpen] = useState(false);
-    return (
-      <>
-        <button
-          onClick={() => setOpen(true)}
-          className="fixed top-4 left-4 z-[60] rounded-md bg-primary-600 px-3 py-2 text-white"
-        >
-          Abrir carrinho
-        </button>
-        <Cart {...args} isOpen={open} onToggleOpen={() => setOpen((v) => !v)} />
-      </>
-    );
-  },
-  args: {
-    products: mockedProducts.slice(0, 2),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Demonstra a área de itens com **scroll** quando a lista é longa.",
+      },
+    },
   },
 };

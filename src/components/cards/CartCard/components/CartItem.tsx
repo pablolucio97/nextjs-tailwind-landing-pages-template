@@ -34,7 +34,7 @@ export default function CartItem({
   };
 
   return (
-    <div className="w-full flex items-center gap-4 text-background border border-foreground/10 bg-background rounded-md p-3 mb-4">
+    <div className="w-full flex items-center gap-4 text-background border border-foreground/10 bg-bg-card rounded-md p-3 mb-4">
       <Image
         src={product.imageUrl}
         alt={product.name}

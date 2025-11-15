@@ -1,94 +1,150 @@
-// index.stories.tsx
-import { samplePhotos } from "@/mocks/index";
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import ProductImageVisualizer from "./index";
+// components/product/GenericProductDetails/index.stories.tsx
+import type { Meta, StoryObj } from "@storybook/react";
+import React from "react";
+import GenericProductDetails from "./index";
 
-type Story = StoryObj<typeof ProductImageVisualizer>;
+// ====== Mocks ======
+const PHOTOS = [
+  {
+    src: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1200&auto=format&fit=crop",
+    alt: "Produto — vista frontal",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1200&auto=format&fit=crop",
+    alt: "Produto — detalhes",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?q=80&w=1200&auto=format&fit=crop",
+    alt: "Produto — embalagem",
+  },
+];
 
-/* ------------------------------ Meta ------------------------------ */
-const meta: Meta<typeof ProductImageVisualizer> = {
-  title: "Media/ProductImageVisualizer",
-  component: ProductImageVisualizer,
+const BASE_PRODUCT = {
+  id: "p-1",
+  name: "Headphone Wireless XZ Pro — Noise Cancelling",
+  price: 899.9,
+  description:
+    "Headphone sem fio com cancelamento ativo de ruído, drivers de alta fidelidade e autonomia de até 40h. Conforto premium para longas sessões.",
+  photos: PHOTOS,
+};
+
+const meta: Meta<typeof GenericProductDetails> = {
+  title: "Miscellaneous/GenericProductDetails",
+  component: GenericProductDetails,
   tags: ["autodocs"],
   parameters: {
-    layout: "centered",
-    controls: { expanded: true },
+    layout: "fullscreen",
     docs: {
       description: {
         component:
-          `Visualizador de imagens para páginas de produto, com **miniaturas** (horizontais no mobile, **verticais no desktop**), ` +
-          `setas de navegação (botões/teclado) e **zoom ao passar o mouse**.\n\n` +
-          `### Props\n` +
-          `- **images**: lista de { src, alt, className? }\n` +
-          `- **className?**: classes do container\n` +
-          `- **mainImageClassName?**: classes da imagem principal\n` +
-          `- **thumbClassName?**: classes aplicadas a **todas** as miniaturas\n` +
-          `- **showHelperText?**: exibe dica abaixo (padrão: true)\n\n` +
-          `> Responsivo e com suporte a **dark mode** (tokens \`bg-background\`, \`text-foreground\`).`,
+          "Detalhes de produto genérico com galeria (imagem principal + thumbnails), **zoom on hover**, e ações (favoritar, compartilhar e adicionar ao carrinho). Responsivo e com suporte a dark mode.",
       },
     },
   },
-  args: {
-    images: samplePhotos,
-    showHelperText: true,
-  },
   argTypes: {
-    images: { control: false },
-    showHelperText: { control: "boolean" },
+    product: { control: "object" },
     className: { control: "text" },
     mainImageClassName: { control: "text" },
     thumbClassName: { control: "text" },
+    showHelperText: { control: "boolean" },
+
+    onAddToCart: { action: "addToCart", table: { category: "events" } },
+    onAddToFavorites: { action: "addToFavorites", table: { category: "events" } },
+    onShare: { action: "share", table: { category: "events" } },
   },
   decorators: [
     (Story) => (
-      <div className="w-full max-w-5xl bg-background text-foreground p-4 rounded-lg">
-        <Story />
+      <div className="min-h-[80vh] w-full bg-background text-foreground p-4 sm:p-8">
+        <div className="mx-auto max-w-6xl">
+          <Story />
+        </div>
       </div>
     ),
   ],
 };
 export default meta;
 
-/* ------------------------------ Stories ------------------------------ */
+type Story = StoryObj<typeof GenericProductDetails>;
 
-export const Default: Story = {};
+/* ===================== Stories ===================== */
 
-export const FewImages: Story = {
+export const Default: Story = {
   args: {
-    images: samplePhotos.slice(0, 3),
+    product: BASE_PRODUCT,
+    showHelperText: true,
   },
 };
 
-export const ManyImages: Story = {
+export const WithOldPriceAndAutoDiscount: Story = {
   args: {
-    images: [...samplePhotos, ...samplePhotos].map((p, i) => ({
-      ...p,
-      alt: (p.alt ?? "Imagem") + ` #${i + 1}`,
-    })),
+    product: {
+      ...BASE_PRODUCT,
+      id: "p-2",
+      price: 799.9,
+      oldPrice: 999.9, // desconto será derivado automaticamente
+    },
+    showHelperText: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Exemplo com `oldPrice` — o componente calcula o **percentual de desconto** automaticamente.",
+      },
+    },
+  },
+};
+
+export const WithExplicitDiscountPercent: Story = {
+  args: {
+    product: {
+      ...BASE_PRODUCT,
+      id: "p-3",
+      price: 749.9,
+      // pode ser 0–100 (percentual) OU 0–1 (fração). Aqui, 15%.
+      discount: 15,
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Exemplo usando a prop `discount` explicitamente (aceita **0–100** ou **0–1**).",
+      },
+    },
+  },
+};
+
+export const FewImages: Story = {
+  args: {
+    product: {
+      ...BASE_PRODUCT,
+      id: "p-4",
+      photos: PHOTOS.slice(0, 2), // apenas 2 imagens
+    },
   },
 };
 
 export const NoHelperText: Story = {
-  args: { showHelperText: false },
-};
-
-export const CustomClasses: Story = {
   args: {
-    className: "md:grid-cols-[104px_1fr]",
-    mainImageClassName: "rounded-md",
-    thumbClassName:
-      "h-20 w-20 md:h-24 md:w-[88px] object-cover rounded-md border border-border-card",
+    product: BASE_PRODUCT,
+    showHelperText: false,
   },
 };
 
-export const DarkMode: Story = {
-  render: (args) => (
-    <div className="dark bg-background text-foreground p-4 rounded-lg">
-      <ProductImageVisualizer {...args} images={samplePhotos} />
-      <p className="mt-2 text-xs text-foreground/70">
-        Pré-visualização com a classe <code>dark</code> forçada.
-      </p>
-    </div>
-  ),
-  parameters: { layout: "centered" },
+export const CustomStyling: Story = {
+  args: {
+    product: BASE_PRODUCT,
+    mainImageClassName: "rounded-2xl",
+    thumbClassName: "rounded-lg",
+    className: "md:grid-cols-[96px_1fr] gap-4", // exemplo de override leve
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Demonstrando personalização via `className`, `mainImageClassName` e `thumbClassName`.",
+      },
+    },
+  },
 };
